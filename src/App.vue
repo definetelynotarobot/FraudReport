@@ -1,26 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <AppHeader />
+    <!-- Changed from Header to AppHeader -->
+    <router-view />
+    <AppFooter />
+    <!-- Keep this as it is if you previously renamed it -->
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppHeader from './components/AppHeader.vue' // Changed import name
+import AppFooter from './components/AppFooter.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    AppHeader, // Changed from Header to AppHeader
+    AppFooter,
+  },
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+/* Global styles can go here */
+body {
+  font-family: 'Space', sans-serif; /* Use this to set a base font */
+  margin: 0;
+  padding: 0;
 }
 </style>

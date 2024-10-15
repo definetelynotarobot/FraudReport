@@ -35,35 +35,29 @@
 </template>
 
 <script>
-import FraudReportModal from '../components/FraudReportModal.vue' // Ensure this is correct
+import FraudReportModal from '../components/FraudReportModal.vue'
 
 export default {
   name: 'FraudReport',
   components: {
-    FraudReportModal, // Ensure this is correctly registered
+    FraudReportModal,
   },
   data() {
     return {
       selectedCity: '',
       selectedFraud: '',
-      cities: ['Budapest', 'Rome', 'Paris', 'New York', 'Tokyo'],
-      fraudTypes: [
-        'Taxi Fraud',
-        'Hotel Scam',
-        'Pickpocketing',
-        'Fake Tour Guides',
-        'Card Skimming',
-      ],
-      showModal: false, // Controls modal visibility
+      cities: ['New York', 'Paris', 'Tokyo'], // Add actual cities data
+      fraudTypes: ['Pickpocketing', 'Scam Calls', 'Fake Taxis'], // Add actual fraud types data
+      showModal: false,
     }
   },
   methods: {
     submitReport() {
       console.log('City:', this.selectedCity)
       console.log('Fraud Type:', this.selectedFraud)
-      this.showModal = true // Show the modal
-      this.selectedCity = '' // Reset the form
-      this.selectedFraud = '' // Reset the form
+      this.showModal = true
+      this.selectedCity = ''
+      this.selectedFraud = ''
     },
   },
 }
@@ -72,43 +66,77 @@ export default {
 <style scoped>
 .fraud-report {
   padding: 2rem;
-  background-color: #f8f9fa;
-  border-radius: 5px;
-  max-width: 400px;
+  background-color: #f3f4f6; /* Light Gray Background */
+  border-radius: 10px;
+  max-width: 450px;
   margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
   margin-bottom: 1rem;
+  color: #1f2937; /* Slate for the header */
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.disclaimer {
+  font-size: 0.95rem;
+  color: #6b7280; /* Gray text for the disclaimer */
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 label {
   display: block;
   margin-bottom: 0.5rem;
+  color: #374151; /* Dark Slate for labels */
+  font-size: 1rem;
 }
 
 select {
   width: 100%;
   padding: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 5px;
+  border: 1px solid #d1d5db; /* Light Gray border */
+  background-color: #ffffff; /* White background for select boxes */
+  font-size: 1rem;
 }
 
 button {
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
-  color: white;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #3b82f6; /* Blue button background */
+  color: #ffffff;
   border: none;
   border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #2563eb; /* Darker blue on hover */
 }
 
-.disclaimer {
-  font-size: 0.9em;
-  color: #6c757d;
-  margin-bottom: 1rem;
+button:active {
+  background-color: #1d4ed8; /* Even darker blue on active click */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 480px) {
+  .fraud-report {
+    padding: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
 }
 </style>

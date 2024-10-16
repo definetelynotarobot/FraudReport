@@ -1,11 +1,11 @@
 <template>
   <div class="landing-page">
-    <h1>Welcome to the Fraud Alert System</h1>
+    <h1>Welcome to the Tourist Guards</h1>
     <p>
-      Are you traveling soon? Stay informed about potential fraud risks in various cities.
+      Are you traveling soon? Stay informed about potential scam risks in various cities.
     </p>
     <router-link to="/scams">
-      <button class="cta-button">Go to Fraud Alert System</button>
+      <button class="cta-button">Report a scam</button>
     </router-link>
   </div>
 </template>

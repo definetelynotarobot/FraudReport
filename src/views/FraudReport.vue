@@ -8,8 +8,8 @@
     </p>
     <form @submit.prevent="submitReport">
       <label for="city">Choose a city:</label>
-      <select v-model="selectedCity" id="city" required>
-        <option value="" disabled>Select a city</option>
+      <select v-model="selectedCity" class="custom-select">
+        <option disabled value="">Please select one</option>
         <option v-for="city in cities" :key="city" :value="city">
           {{ city }}
         </option>
@@ -18,8 +18,8 @@
       <label for="fraudType">Choose a type of fraud:</label>
       <select v-model="selectedFraud" id="fraudType" required>
         <option value="" disabled>Select a type of fraud</option>
-        <option v-for="fraud in fraudTypes" :key="fraud" :value="fraud">
-          {{ fraud }}
+        <option v-for="fraud in filteredFraudTypes" :key="fraud.id" :value="fraud.title">
+          {{ fraud.title }}  <!-- Change to fraud.title -->
         </option>
       </select>
 
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import FraudReportModal from '../components/FraudReportModal.vue'
+import FraudReportModal from '../components/FraudReportModal.vue';
 
 export default {
   name: 'FraudReport',
@@ -46,21 +46,52 @@ export default {
     return {
       selectedCity: '',
       selectedFraud: '',
-      cities: ['New York', 'Paris', 'Tokyo'], // Add actual cities data
-      fraudTypes: ['Pickpocketing', 'Scam Calls', 'Fake Taxis'], // Add actual fraud types data
+      cities: [],
+      filteredFraudTypes: [],
       showModal: false,
-    }
+    };
+  },
+  created() {
+    this.fetchCities();
   },
   methods: {
+    async fetchCities() {
+  try {
+    const response = await fetch('http://localhost:4000/api/cities');
+    if (!response.ok) throw new Error('Error fetching cities');
+    const data = await response.json();
+    this.cities = data.map(city => city.city); // Extract city names
+    } catch (error) {
+    console.error('Error fetching cities:', error);
+    }
+  },
+    async fetchFraudBehaviors() {
+      this.fraudBehaviors = [];
+      this.buttonClicked = false;
+
+      try {
+        const response = await fetch(`http://localhost:4000/api/scams/${this.selectedCity}`);
+        if (!response.ok) throw new Error('Error fetching scams');
+        const data = await response.json();
+
+        this.fraudBehaviors = (data.scams || []).map(scam => ({
+          ...scam,
+          counter: scam.counter,
+        }));
+        this.buttonClicked = true;
+      } catch (error) {
+        console.error('Error fetching scams:', error);
+      }
+    },
     submitReport() {
-      console.log('City:', this.selectedCity)
-      console.log('Fraud Type:', this.selectedFraud)
-      this.showModal = true
-      this.selectedCity = ''
-      this.selectedFraud = ''
+      console.log('City:', this.selectedCity);
+      console.log('Fraud Type:', this.selectedFraud);
+      this.showModal = true;
+      this.selectedCity = '';
+      this.selectedFraud = '';
     },
   },
-}
+};
 </script>
 
 <style scoped>

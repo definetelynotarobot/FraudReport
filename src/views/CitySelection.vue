@@ -14,30 +14,25 @@
       <p v-if="!selectedCity && buttonClicked">Please select a city before proceeding.</p>
     </div>
 
-    <!-- Scam cards container -->
     <div v-if="fraudBehaviors.length > 0" class="scam-cards">
-      <div class="scam-card-container" v-for="behavior in fraudBehaviors" :key="behavior.title">
-        <!-- Card Wrapper to Align Widths -->
+      <div class="scam-card-container" v-for="behavior in fraudBehaviors" :key="behavior.id">
         <div class="card-wrapper">
-          <!-- Scam card with Title, Description and Mask Icon -->
           <div class="scam-card">
             <div class="icon">
-              <i class="fas fa-mask" aria-hidden="true"></i> <!-- Mask icon for scams -->
+              <i class="fas fa-mask" aria-hidden="true"></i>
             </div>
             <div class="scam-card-content">
               <h4>{{ behavior.title }}</h4>
               <p>{{ behavior.description }}</p>
             </div>
-              <!-- Add this button inside your scam-card div -->
-              <button @click="incrementCounter(behavior)" class="increment-button">
+            <!--
+            <button @click="incrementCounter(behavior)" class="increment-button">
               Report This Scam ({{ behavior.counter }})
-            </button>
+            </button>-->
           </div>
-
-          <!-- Reported by card with Shield Icon -->
           <div class="reported-by-card">
             <div class="icon">
-              <i class="fas fa-shield-alt" aria-hidden="true"></i> <!-- Shield icon for reported by -->
+              <i class="fas fa-shield-alt" aria-hidden="true"></i>
             </div>
             <p><strong>Reported by:</strong> {{ behavior.reportedBy }}</p>
           </div>
@@ -52,66 +47,60 @@ export default {
   data() {
     return {
       selectedCity: '',
-      currentCity: '', // New property for displaying the city name
-      cities: [], // Start with an empty array
+      cities: [],
       fraudBehaviors: [],
-      buttonClicked: false, // Flag to track button click
+      buttonClicked: false,
     };
   },
   created() {
-    this.fetchCities(); // Fetch cities when the component is created
+    this.fetchCities();
   },
   methods: {
-    fetchCities() {
-      fetch('http://localhost:4000/api/cities') // Replace with your API URL
-        .then(response => response.json())
-        .then(data => {
-          this.cities = data; // Set cities from the API response
-        })
-        .catch(error => {
-          console.error('Error fetching cities:', error);
-        });
-    },
-    fetchFraudBehaviors() {
-  this.fraudBehaviors = []; // Clear existing fraud behaviors
-  this.buttonClicked = false; // Reset button clicked flag for fresh search
-
-  fetch(`http://localhost:4000/api/scams/${this.selectedCity}`)
-    .then(response => response.json())
-    .then(data => {
-      // Initialize counter to 0 for each scam behavior
-      this.fraudBehaviors = (data.scams || []).map(scam => ({
-        ...scam,   // Spread the original scam properties
-        counter: 0 // Add the counter property
-      }));
-      this.currentCity = this.selectedCity; // Set currentCity to selectedCity
-      this.buttonClicked = true; // Set flag to true after fetching
-    })
-    .catch(error => {
-      console.error('Error fetching scams:', error);
-    });
+  async fetchCities() {
+  try {
+    const response = await fetch('http://localhost:4000/api/cities');
+    if (!response.ok) throw new Error('Error fetching cities');
+    const data = await response.json();
+    this.cities = data.map(city => city.city); // Extract city names
+    } catch (error) {
+    console.error('Error fetching cities:', error);
+    }
   },
+    async fetchFraudBehaviors() {
+      this.fraudBehaviors = [];
+      this.buttonClicked = false;
 
-    incrementCounter(behavior) {
-    // Increment the counter locally
-    behavior.counter += 1;
+      try {
+        const response = await fetch(`http://localhost:4000/api/scams/${this.selectedCity}`);
+        if (!response.ok) throw new Error('Error fetching scams');
+        const data = await response.json();
 
-    // Make the API call to update the counter on the server
-    fetch(`http://localhost:4000/api/scams/${behavior.id}/increment`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ count: behavior.counter }),
-    })
-      .then(response => {
-        if (!response.ok) throw new Error('Network response was not ok');
+        this.fraudBehaviors = (data.scams || []).map(scam => ({
+          ...scam,
+          counter: scam.counter,
+        }));
+        this.buttonClicked = true;
+      } catch (error) {
+        console.error('Error fetching scams:', error);
+      }
+    },/*
+    async incrementCounter(behavior) {
+      behavior.counter += 1;
+
+      try {
+        const response = await fetch(`http://localhost:4000/api/scams/${behavior._id}/increment`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ count: behavior.counter }),
+        });
+        if (!response.ok) throw new Error('Error updating counter on server');
         console.log(`Counter for ${behavior.title} updated on server.`);
-      })
-      .catch(error => {
+      } catch (error) {
         console.error('Error updating counter on server:', error);
-      });
-  }
+      }
+    },*/
   },
 };
 </script>
@@ -140,7 +129,7 @@ export default {
   margin-top: 10px;
   margin-bottom: 20px;
   background-color: #f9f9f9;
-  appearance: none; /* Remove default arrow */
+  appearance: none;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   transition: border 0.3s ease;
 }
@@ -171,7 +160,6 @@ export default {
   background-color: #0056b3;
 }
 
-/* Style the cards and make sure they're centered */
 .scam-cards {
   display: flex;
   flex-direction: column;
@@ -180,7 +168,7 @@ export default {
 
 .scam-card-container {
   margin: 15px 0;
-  width: 80%; /* Set a width so cards are centered nicely */
+  width: 80%;
 }
 
 .card-wrapper {
@@ -189,7 +177,6 @@ export default {
   width: 100%;
 }
 
-/* Ensure both scam-card and reported-by-card have the same width */
 .scam-card, .reported-by-card {
   display: flex;
   flex-direction: row;
@@ -226,5 +213,4 @@ h4 {
   display: flex;
   align-items: center;
 }
-
 </style>

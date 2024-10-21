@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <p>&copy; {{ currentYear }} Fraud Alert System. All rights reserved.</p>
+    <p>&copy; {{ currentYear }} Tourist Guards. All rights reserved.</p>
   </footer>
 </template>
 
@@ -45,6 +45,12 @@ html, body {
 
 /* Add margin to ensure the footer doesn't overlap with the content */
 footer {
-  margin-top: auto;
+  position:relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-align: center;
 }
 </style>

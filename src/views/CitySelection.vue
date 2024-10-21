@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="search-area">
-      <h2>Select a City</h2>
+      <h2>📍Select a City</h2>
       <select v-model="selectedCity" class="custom-select">
         <option disabled value="">Please select one</option>
         <option v-for="city in cities" :key="city" :value="city">
@@ -106,6 +106,7 @@ async fetchFraudBehaviors() {
 </script>
 
 <style>
+
 /* Center everything in the container */
 .container {
   display: flex;
@@ -147,6 +148,8 @@ async fetchFraudBehaviors() {
   border: none;
   cursor: pointer;
   font-size: 16px;
+  font-family:"Montserrat";
+  font-weight:400;
   transition: background-color 0.3s ease;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -190,6 +193,7 @@ async fetchFraudBehaviors() {
   border: 1px solid #ccc;
   background-color: #fff;
   margin-bottom: 10px;
+  
 }
 
 .icon {
@@ -212,5 +216,10 @@ h4 {
   border: 1px solid #ccc;
   display: flex;
   align-items: center;
+  i{
+    color:#03346E;
+
+  }
 }
+
 </style>

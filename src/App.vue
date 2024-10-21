@@ -1,31 +1,48 @@
 <template>
-  <div id="app">
+  <div id="app" class="app-container">
     <AppHeader />
-    <!-- Changed from Header to AppHeader -->
-    <router-view />
+    <div class="app-content">
+      <router-view />
+    </div>
     <AppFooter />
-    <!-- Keep this as it is if you previously renamed it -->
   </div>
 </template>
 
 <script>
-import AppHeader from './components/AppHeader.vue' // Changed import name
+import AppHeader from './components/AppHeader.vue' 
 import AppFooter from './components/AppFooter.vue'
 
 export default {
   name: 'App',
   components: {
-    AppHeader, // Changed from Header to AppHeader
+    AppHeader, 
     AppFooter,
   },
 }
 </script>
 
 <style>
-/* Global styles can go here */
+/* Global styles */
 body {
-  font-family: 'Space', sans-serif; /* Use this to set a base font */
+  font-family: 'Montserrat', 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
+.app-content {
+  flex-grow: 1; /* Pushes footer to the bottom when content is minimal */
+}
+
+.app-footer {
+  background-color: #1e3a8a; /* Deep Blue */
+  color: white;
+  padding: 20px;
+  text-align: center;
 }
 </style>

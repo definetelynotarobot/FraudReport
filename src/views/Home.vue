@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Welcome to the Fraud Alert System</h2>
+    <h2>Welcome to the Tourist Guards</h2>
     <router-link to="/city-selection">Select a City</router-link>
   </div>
 </template>

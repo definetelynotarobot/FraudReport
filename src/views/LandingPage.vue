@@ -1,11 +1,11 @@
 <template>
   <div class="landing-page">
-    <h1>Welcome to the Tourist Guards</h1>
+    <h1>Better safe than sorry.</h1>
     <p>
       Are you traveling soon? Stay informed about potential scam risks in various cities.
     </p>
     <router-link to="/scams">
-      <button class="cta-button">Report a scam</button>
+      <button class="cta-button">Discover possible scams</button>
     </router-link>
   </div>
 </template>

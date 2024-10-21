@@ -56,34 +56,34 @@ export default {
     this.fetchCities();
   },
   methods: {
-  async fetchCities() {
+    async fetchCities() {
   try {
-    const response = await fetch('http://localhost:4000/api/cities');
+    const response = await fetch(`${process.env.VUE_APP_API_URL}/api/cities`);
     if (!response.ok) throw new Error('Error fetching cities');
     const data = await response.json();
     this.cities = data.map(city => city.city); // Extract city names
-    } catch (error) {
+  } catch (error) {
     console.error('Error fetching cities:', error);
-    }
-  },
-    async fetchFraudBehaviors() {
-      this.fraudBehaviors = [];
-      this.buttonClicked = false;
+  }
+},
+async fetchFraudBehaviors() {
+  this.fraudBehaviors = [];
+  this.buttonClicked = false;
 
-      try {
-        const response = await fetch(`http://localhost:4000/api/scams/${this.selectedCity}`);
-        if (!response.ok) throw new Error('Error fetching scams');
-        const data = await response.json();
-
-        this.fraudBehaviors = (data.scams || []).map(scam => ({
-          ...scam,
-          counter: scam.counter,
-        }));
-        this.buttonClicked = true;
-      } catch (error) {
-        console.error('Error fetching scams:', error);
-      }
-    },/*
+  try {
+    const response = await fetch(`${process.env.VUE_APP_API_URL}/api/scams/${this.selectedCity}`);
+    if (!response.ok) throw new Error('Error fetching scams');
+    const data = await response.json();
+    this.fraudBehaviors = (data.scams || []).map(scam => ({
+      ...scam,
+      counter: scam.counter,
+    }));
+    this.buttonClicked = true;
+  } catch (error) {
+    console.error('Error fetching scams:', error);
+  }
+},
+/*
     async incrementCounter(behavior) {
       behavior.counter += 1;
 

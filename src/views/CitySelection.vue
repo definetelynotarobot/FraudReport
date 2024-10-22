@@ -25,10 +25,6 @@
               <h4>{{ behavior.title }}</h4>
               <p>{{ behavior.description }}</p>
             </div>
-            <!--
-            <button @click="incrementCounter(behavior)" class="increment-button">
-              Report This Scam ({{ behavior.counter }})
-            </button>-->
           </div>
           <div class="reported-by-card">
             <div class="icon">
@@ -43,6 +39,8 @@
 </template>
 
 <script>
+import { useHead } from '@vueuse/head';
+
 export default {
   data() {
     return {
@@ -52,61 +50,85 @@ export default {
       buttonClicked: false,
     };
   },
+  watch: {
+    selectedCity(newCity) {
+      // Update meta tags dynamically when city changes
+      useHead({
+        title: newCity ? `${newCity} - Tourist Scams` : 'Select a City for Scams Info',
+        meta: [
+          {
+            name: 'description',
+            content: newCity
+              ? `Discover the most common scams in ${newCity} and stay safe during your travels.`
+              : 'Explore potential scams and fraud risks in different cities around the world.',
+          },
+          {
+            name: 'keywords',
+            content: newCity
+              ? `${newCity}, tourist scams, travel scams, ${newCity} scams`
+              : 'tourist scams, travel fraud, city scams, stay safe while traveling',
+          },
+          {
+            property: 'og:title',
+            content: newCity
+              ? `${newCity} Scams - Stay Safe`
+              : 'Tourist Guards - Fraud Info in Various Cities',
+          },
+          {
+            property: 'og:description',
+            content: newCity
+              ? `Here are the most reported scams in ${newCity}. Know before you go!`
+              : 'Discover tourist scams reported in major cities and keep your travels safe.',
+          },
+          {
+            property: 'og:type',
+            content: 'website',
+          },
+          {
+            property: 'og:url',
+            content: window.location.href,
+          },
+        ],
+      });
+    },
+  },
   created() {
     this.fetchCities();
   },
   methods: {
     async fetchCities() {
-  try {
-    const response = await fetch(`${process.env.VUE_APP_API_URL}/api/cities`);
-    if (!response.ok) throw new Error('Error fetching cities');
-    const data = await response.json();
-    this.cities = data.map(city => city.city); // Extract city names
-  } catch (error) {
-    console.error('Error fetching cities:', error);
-  }
-},
-async fetchFraudBehaviors() {
-  this.fraudBehaviors = [];
-  this.buttonClicked = false;
-
-  try {
-    const response = await fetch(`${process.env.VUE_APP_API_URL}/api/scams/${this.selectedCity}`);
-    if (!response.ok) throw new Error('Error fetching scams');
-    const data = await response.json();
-    this.fraudBehaviors = (data.scams || []).map(scam => ({
-      ...scam,
-      counter: scam.counter,
-    }));
-    this.buttonClicked = true;
-  } catch (error) {
-    console.error('Error fetching scams:', error);
-  }
-},
-/*
-    async incrementCounter(behavior) {
-      behavior.counter += 1;
+      try {
+        const response = await fetch(`${process.env.VUE_APP_API_URL}/api/cities`);
+        if (!response.ok) throw new Error('Error fetching cities');
+        const data = await response.json();
+        this.cities = data.map((city) => city.city); // Extract city names
+        this.cities.sort((a, b) => a.localeCompare(b)); // Sort cities alphabetically
+      } catch (error) {
+        console.error('Error fetching cities:', error);
+      }
+    },
+    async fetchFraudBehaviors() {
+      this.fraudBehaviors = [];
+      this.buttonClicked = false;
 
       try {
-        const response = await fetch(`http://localhost:4000/api/scams/${behavior._id}/increment`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ count: behavior.counter }),
-        });
-        if (!response.ok) throw new Error('Error updating counter on server');
-        console.log(`Counter for ${behavior.title} updated on server.`);
+        const response = await fetch(`${process.env.VUE_APP_API_URL}/api/scams/${this.selectedCity}`);
+        if (!response.ok) throw new Error('Error fetching scams');
+        const data = await response.json();
+        this.fraudBehaviors = (data.scams || []).map((scam) => ({
+          ...scam,
+          counter: scam.counter,
+        }));
+        this.buttonClicked = true;
       } catch (error) {
-        console.error('Error updating counter on server:', error);
+        console.error('Error fetching scams:', error);
       }
-    },*/
+    },
   },
 };
 </script>
 
 <style>
-
 /* Center everything in the container */
 .container {
   display: flex;
@@ -148,8 +170,8 @@ async fetchFraudBehaviors() {
   border: none;
   cursor: pointer;
   font-size: 16px;
-  font-family:"Montserrat";
-  font-weight:400;
+  font-family: "Montserrat";
+  font-weight: 400;
   transition: background-color 0.3s ease;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -193,7 +215,6 @@ async fetchFraudBehaviors() {
   border: 1px solid #ccc;
   background-color: #fff;
   margin-bottom: 10px;
-  
 }
 
 .icon {
@@ -216,10 +237,9 @@ h4 {
   border: 1px solid #ccc;
   display: flex;
   align-items: center;
-  i{
-    color:#03346E;
-
-  }
 }
 
+.reported-by-card i {
+  color: #03346E;
+}
 </style>

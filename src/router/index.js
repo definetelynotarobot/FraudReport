@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import LandingPage from '../views/LandingPage.vue';
 import CitySelection from '../views/CitySelection.vue';
 import FraudReport from '../views/FraudReport.vue'; // Import the FraudReport component
-import AboutMe from '@/views/AboutMe.vue';
+import AboutMe from '@/views/ScamBlog.vue';
 
 const routes = [
   {
@@ -11,8 +11,8 @@ const routes = [
     component: LandingPage,
   },
   {
-    path: '/about-me',
-    name: 'AboutMe',
+    path: '/Blog',
+    name: 'Blog',
     component: AboutMe,
   },
   {

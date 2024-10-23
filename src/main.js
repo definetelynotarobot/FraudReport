@@ -1,23 +1,21 @@
 import { createApp } from 'vue'; // Use createApp
 import App from './App.vue';
 import router from './router';
+import VueGtag from 'vue-gtag';
 import '@fortawesome/fontawesome-free/css/all.css';
 import { createHead } from '@vueuse/head';
-/* import VueGtag from 'vue-gtag';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
-//GOOGLE ANALYTICS
-Vue.use(VueGtag, {
-
-  config: {
-
-    id: process.env.GOOGLE_ANALYTICS_PROPERTY_ID
-
-  }
-
-});*/
 
 const app = createApp(App); // Create the app instance
 const head = createHead(); // Create the head manager
 app.use(head);
+// Conditionally apply Google Analytics only in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(VueGtag, {
+    config: { id: process.env.VUE_APP_GA_ID }, // Environment variable (from .env or Vercel)
+  });
+}
 app.use(router); // Use the router
 app.mount('#app'); // Mount the app

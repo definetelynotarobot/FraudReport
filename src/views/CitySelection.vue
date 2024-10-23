@@ -231,12 +231,17 @@ h4 {
 }
 
 .reported-by-card {
+  font-family:"Montserrat";
+  font-weight: 600;
   padding: 10px;
   background-color: #f4f4f9;
   border-radius: 5px;
   border: 1px solid #ccc;
   display: flex;
   align-items: center;
+  p{
+    margin-bottom:0;
+  }
 }
 
 .reported-by-card i {

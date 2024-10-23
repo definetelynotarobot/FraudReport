@@ -3,7 +3,7 @@
   <div class="logo">
     <router-link to="/">
       <div class="container">
-        <img :src="require('@/assets/logo.png')" alt="Tourist Guard Logo" class="logo-image" />
+        <img :src="require('@/assets/logo.png')" alt="Tourist Guard Logo" class="logo-image" loading="lazy"/>
         <h1 class="logo-header">Tourist Guards</h1>
       </div>
     </router-link>
@@ -11,7 +11,7 @@
   <nav>
     <ul>
       <li><router-link to="/">Home</router-link></li>
-      <li><router-link to="/about-me">About Me</router-link></li>
+      <li><router-link to="/blog">Blog</router-link></li>
       <li><router-link to="/scams">Reported Scams</router-link></li>
       <li><router-link to="/report-scams">Submit a Report</router-link></li>
       <li><router-link to="/contact">Contact Me</router-link></li>
@@ -113,6 +113,7 @@ nav ul li {
 }
 
 nav ul li a {
+  font-family: "Montserrat";
   color: white; /* Link color */
   text-decoration: none;
   font-size: 1.1rem; /* Increase size */

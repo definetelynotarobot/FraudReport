@@ -15,7 +15,6 @@
           src="@/assets/hero/hero-img-4.png" 
           alt="Infographic with Luggage"
           class="hero-img"
-          loading="lazy"
         />
       </div>
     </div>

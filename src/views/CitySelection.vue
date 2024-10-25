@@ -12,9 +12,16 @@
         View Potential Scams
       </button>
       <p v-if="!selectedCity && buttonClicked">Please select a city before proceeding.</p>
+
     </div>
 
     <div v-if="fraudBehaviors.length > 0" class="scam-cards">
+      <div class="prevention-card" v-if="fraudBehaviors.length > 0">
+        <div class="prevent-container">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <p class="avoid-direct">If you want to get info/tips about how to avoid these scams please refer to our <a href="/avoid">Avoid/Prevention</a> page</p>
+        </div>
+      </div>
       <div class="scam-card-container" v-for="behavior in fraudBehaviors" :key="behavior.id">
         <div class="card-wrapper">
           <div class="scam-card">
@@ -216,6 +223,53 @@ export default {
   background-color: #fff;
   margin-bottom: 10px;
 }
+.prevention-card {
+  background-color: #fff; /* White background for contrast */
+  border: 1px solid #bd2c08; /* Border color for attention */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 10px; /* Padding inside the card */
+  margin: 20px; /* Margin outside the card */
+  display: flex; /* Flexbox for layout */
+  align-items: center; /* Center items vertically */
+  width:80%;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+  i{
+    color:rgb(211, 60, 14);
+    margin-right:10px;
+    font-size:2em;
+  }
+  a{
+    text-decoration: none;
+    font-weight:500;
+    color:#04b104;
+  }
+}
+.prevent-container{
+  display:flex;
+  align-items: center;
+}
+
+.prevention-card:hover {
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+}
+.avoid-direct {
+  font-size: 16px; /* Font size for the text */
+  color: #333; /* Text color */
+  margin: 0; /* Remove default margin */
+}
+
+.avoid-link {
+  color: #007bff; /* Link color */
+  text-decoration: underline; /* Underline link */
+}
+
+.avoid-link:hover {
+  text-decoration: none; /* Remove underline on hover */
+}
+
 
 .icon {
   margin-right: 10px;
@@ -232,7 +286,7 @@ h4 {
 
 .reported-by-card {
   font-family:"Montserrat";
-  font-weight: 600;
+  font-weight: 500;
   padding: 10px;
   background-color: #f4f4f9;
   border-radius: 5px;
@@ -245,6 +299,6 @@ h4 {
 }
 
 .reported-by-card i {
-  color: #03346E;
+  color: #04b104;
 }
 </style>

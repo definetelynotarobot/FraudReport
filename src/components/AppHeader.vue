@@ -13,8 +13,9 @@
       <li><router-link to="/">Home</router-link></li>
       <li><router-link to="/blog">Blog</router-link></li>
       <li><router-link to="/scams">Reported Scams</router-link></li>
-      <li><router-link to="/report-scams">Submit a Report</router-link></li>
-      <li><router-link to="/contact">Contact Me</router-link></li>
+      <li><router-link to="/Avoid">Avoid/Prevention</router-link></li>
+      <li><router-link to="/Share-Experience">Share Experience</router-link></li>
+      
     </ul>
   </nav>
 </header>
@@ -41,7 +42,7 @@ export default {
 }
 .logo-image {
   width: 75px; /* Adjust the width as needed */
-  height: auto; /* Maintain aspect ratio */
+  height: 85px; /* Maintain aspect ratio */
   margin-right:10px;
   animation: fadeIn 1s ease-in-out;
 }

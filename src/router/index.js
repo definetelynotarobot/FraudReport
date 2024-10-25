@@ -3,6 +3,7 @@ import LandingPage from '../views/LandingPage.vue';
 import CitySelection from '../views/CitySelection.vue';
 import FraudReport from '../views/FraudReport.vue'; // Import the FraudReport component
 import AboutMe from '@/views/ScamBlog.vue';
+import AvoidPrevention from '@/views/AvoidPrevention.vue';
 
 const routes = [
   {
@@ -16,7 +17,7 @@ const routes = [
     component: AboutMe,
   },
   {
-    path: '/scams',
+    path: '/Scams',
     name: 'scams',
     component: CitySelection,
   },
@@ -24,6 +25,11 @@ const routes = [
     path: '/report-scams',
     name: 'FraudReport', // Add this route for the Fraud Report
     component: FraudReport,
+  },
+  {
+    path: '/Avoid',
+    name: 'AvoidPrevention',
+    component: AvoidPrevention,
   },
 ];
 

@@ -1,12 +1,17 @@
 <template>
   <footer class="footer">
     <p>&copy; {{ currentYear }} Tourist Guards. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/privacy" class="footer-link">Privacy</a>
+      <span>|</span>
+      <a href="/terms" class="footer-link">Terms of Use</a>
+    </div>
   </footer>
 </template>
 
 <script>
 export default {
-  name: 'AppFooter', // Changed from 'Footer' to 'AppFooter'
+  name: 'AppFooter',
   data() {
     return {
       currentYear: new Date().getFullYear(),
@@ -16,7 +21,6 @@ export default {
 </script>
 
 <style scoped>
-/* Make the html and body take up the full height */
 html, body {
   height: 100%;
   margin: 0;
@@ -24,33 +28,41 @@ html, body {
   flex-direction: column;
 }
 
-/* The container grows to fill the space between header and footer */
 .container {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centers the content vertically when there's no content */
-  padding: 20px; /* Add padding to avoid the content touching the edges */
+  justify-content: center;
+  padding: 20px;
 }
 
-/* Footer sits at the bottom naturally without sticking */
-.AppFooter {
+.footer {
   width: 100%;
-  padding: 20px;
-  background-color: #f8f9fa;
+  padding: 10px;
+  background-color: #1e3a8a; /* Set the background color to your blue */
+  color: white; /* Change text color to white for contrast */
   text-align: center;
   border-top: 1px solid #ddd;
   margin-top: auto;
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center items vertically */
+  p{
+    margin-bottom:0;
+  }
+}
+.footer-links {
+  display: flex; /* Align links in a row */
+  align-items: center; /* Center links vertically */
 }
 
-/* Add margin to ensure the footer doesn't overlap with the content */
-footer {
-  position:relative;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: white;
-  color: black;
-  text-align: center;
+.footer-link {
+  color: white; /* Link color */
+  text-decoration: none; /* Remove underline from links */
+  margin: 0 10px; /* Space between links */
+}
+
+.footer-link:hover {
+  text-decoration: underline; /* Underline on hover */
 }
 </style>

@@ -12,9 +12,10 @@
       </div>
       <div class="hero">
         <img
-          src="@/assets/hero/hero-img-4.png" 
+          src="@/assets/hero/hero-img-4.webp" 
           alt="Infographic with Luggage"
           class="hero-img"
+          rel="preload"
         />
       </div>
     </div>
@@ -52,16 +53,13 @@ export default {
   display: flex;
   justify-content: center; /* Center the image horizontally */
   align-items: center; /* Center the image vertically */
-  .hero-img {
+
+}
+.hero-img {
   max-width: 100%; /* Make sure the image is responsive */
   height: auto; /* Maintain aspect ratio */
   transition: opacity 1s ease-in-out; /* Smooth transition */
 }
-}
-.fade-out {
-  opacity: 0;
-}
-
 h1 {
   font-family: 'Montserrat', sans-serif; /* Restore original font */
   font-size: 4em;

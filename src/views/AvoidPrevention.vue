@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-      <h1 class="title">How to Avoid Tourist Scams and Stay Safe</h1>
+      <h1 class="title">How to Avoid Tourist Scams and Stay <span><em>Safe</em></span> </h1>
       <p class="description">
         Traveling can be an incredible experience, but it's essential to be aware of potential scams that target tourists. This page provides tips and advice on how to recognize, avoid, and report scams to ensure a safe and enjoyable trip.
       </p>
@@ -73,10 +73,15 @@
   }
   
   .title {
+    font-family:"Montserrat", sans-serif;
     font-size: 2.5rem;
     font-weight: bold;
     text-align: center;
     margin-bottom: 1rem;
+    span{
+      color:#0056b3;
+      font-weight: bold;
+    }
   }
   
   .description {

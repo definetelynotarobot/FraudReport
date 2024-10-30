@@ -1,6 +1,9 @@
 <template>
   <footer class="footer">
-    <p class="rights-reserved">&copy; {{ currentYear }} Tourist Guards. All rights reserved. <a class="made-by" href="https://x.com/Mehmet_vue">| Made by @Mehmet_vue</a></p>
+    <div class="rights"><p class="rights-reserved">&copy; {{ currentYear }} Tourist Guards. </p>
+      <p> All rights reserved.</p>
+      <p><a class="made-by" href="https://x.com/Mehmet_vue"> Created by @Mehmet_vue</a></p></div>
+    
     <div class="footer-links">
       <a href="/privacy" @click.prevent="showPrivacy" class="footer-link">Privacy</a>
       <span>|</span>
@@ -91,6 +94,7 @@ html, body {
   justify-content: space-between; /* Space between items */
   align-items: center; /* Center items vertically */
   p{
+    font-size: small;
     margin-bottom:0;
   }
 }

@@ -3,44 +3,37 @@
     <h1>Tourist Scam Awareness Blog</h1>
 
     <section class="intro">
-      <h2>Welcome to Our Blog</h2>
       <p>
         This blog is dedicated to raising awareness about various tourist scams around the world. Our mission is to provide travelers with valuable insights to help them stay safe and informed during their journeys.
       </p>
     </section>
 
     <section class="posts">
-      
-      <article class="post">
-        <h3>Why We Built This Website</h3>
-        <p>
-          This platform was created to empower travelers with information about potential scams and frauds they might encounter. We believe that informed travelers are safer travelers, and our goal is to provide a community-driven resource where you can share experiences and tips.
-        </p>
-        <a href="#">Read more</a>
+      <article class="post" @click="togglePost">
+        <div class="post-header">
+          <h3>🌍 Why We Built This Website</h3>
+        </div>
+        <div class="post-content" v-if="activePost">
+          <p>
+            In an age where travel is more accessible than ever, the excitement of exploring new destinations can sometimes be overshadowed by the lurking dangers of scams targeting unsuspecting tourists. That's why we decided to create this platform—to empower travelers with essential knowledge about potential scams and frauds they might encounter on their journeys.
+          </p>
+          <p>
+            Our mission is simple: to provide a safe space where travelers can share their experiences, warn others, and learn how to navigate the complexities of tourism with confidence. We believe that informed travelers are safer travelers. Every story shared here contributes to a community-driven resource that can help someone else avoid a costly mistake or, worse, a dangerous situation. 🌟
+          </p>
+          <p>
+            We aim to cover a wide range of scams, from the subtle to the outrageous, and provide practical tips on how to identify and avoid them. Whether you’re wandering the bustling streets of a new city or lounging on a tropical beach, we want you to feel empowered and secure in your travels. 
+          </p>
+          <p>
+            Join us in our mission to create a safer travel experience for everyone! If you have tips or stories to share, we invite you to contribute to our growing community. Together, we can make the world of travel a little brighter and a lot safer. ✈️✨
+          </p>
+        </div>
       </article>
-      <h2>Recent Posts</h2>
-      <article class="post">
-        <h3>Common Tourist Scams in Major Cities</h3>
-        <p>
-          Traveling can be an exciting experience, but it's essential to be aware of common scams that target tourists. In this post, we highlight some of the most prevalent scams in popular tourist destinations and how to avoid falling victim to them.
-        </p>
-        <a href="#">Read more</a>
-      </article>
-
-      <article class="post">
-        <h3>The Fake Charity Scam</h3>
-        <p>
-          One of the most heartbreaking scams involves individuals posing as charity workers. Learn how to identify these scams and protect your generosity while traveling.
-        </p>
-        <a href="#">Read more</a>
-      </article>
-
     </section>
 
     <section class="contact">
-      <h2>Get Involved</h2>
+      <h2 class="cta-title">Get Involved</h2>
       <p>
-        If you have experienced a scam or have tips to share, please reach out to us! Your insights can help other travelers stay safe. Contact us via email at <a href="mailto:youremail@example.com">youremail@example.com</a>.
+        If you have experienced a scam or have tips to share, please reach out to us! Your insights can help other travelers stay safe. Send tips at <a href="/Share-Experience">our Share experience page</a>.
       </p>
     </section>
   </div>
@@ -49,6 +42,17 @@
 <script>
 export default {
   name: 'ScamBlog',
+  data() {
+    return {
+      activePost: false // Track whether the post is currently active
+    };
+  },
+  methods: {
+    togglePost() {
+      // Toggle the active post; close it if it's already open
+      this.activePost = !this.activePost;
+    }
+  }
 };
 </script>
 
@@ -77,26 +81,41 @@ h2 {
 }
 
 .intro,
-.posts,
 .contact {
   margin-bottom: 20px;
 }
-
-p {
-  font-size: 1.2rem;
-  line-height: 1.6;
+.cta-title{
+  color:#1e3a8a;
+  font-weight: bold;
+  font-family: 'Montserrat';
+}
+.posts {
+  display: flex;
+  flex-direction: column; /* Single column for the post */
+  gap: 20px; /* Space between posts */
 }
 
 .post {
-  margin-bottom: 15px;
   padding: 10px;
   border: 1px solid #e5e7eb; /* Light gray border */
-  border-radius: 4px;
+  border-radius: 12px;
+  background-color: white; /* White background for each post */
+  cursor: pointer; /* Show pointer cursor on hover */
+  transition: box-shadow 0.3s ease;
+}
+
+.post-header {
+  padding: 10px;
 }
 
 .post h3 {
   font-size: 1.5rem;
   color: #1e3a8a; /* Deep Blue for post titles */
+  margin: 0;
+}
+
+.post-content {
+  padding: 10px;
 }
 
 a {
@@ -106,34 +125,5 @@ a {
 
 a:hover {
   text-decoration: underline;
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.6rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  h2 {
-    font-size: 1.4rem;
-  }
-
-  p {
-    font-size: 0.9rem;
-  }
 }
 </style>

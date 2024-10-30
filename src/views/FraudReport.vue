@@ -1,94 +1,40 @@
 <template>
   <div class="fraud-report">
-    <h2>Report a Fraud Incident</h2>
-    <p class="disclaimer">
-      Disclaimer: Please select from the dropdown options to report possible
-      fraud incidents. Avoid providing any personal opinions or unverified
-      information.
-    </p>
-    <form @submit.prevent="submitReport">
-      <label for="city">Choose a city:</label>
-      <select v-model="selectedCity" class="custom-select">
-        <option disabled value="">Please select one</option>
-        <option v-for="city in cities" :key="city" :value="city">
-          {{ city }}
-        </option>
-      </select>
-
-      <label for="fraudType">Choose a type of fraud:</label>
-      <select v-model="selectedFraud" id="fraudType" required>
-        <option value="" disabled>Select a type of fraud</option>
-        <option v-for="fraud in filteredFraudTypes" :key="fraud.id" :value="fraud.title">
-          {{ fraud.title }}  <!-- Change to fraud.title -->
-        </option>
-      </select>
-
-      <button type="submit">Submit Report</button>
-    </form>
-
-    <FraudReportModal
-      v-if="showModal"
-      :isVisible="showModal"
-      @close="showModal = false"
-    />
+    <b-card
+      title="Report a Fraud Incident"
+      img-src="https://picsum.photos/600/300/?image=25"
+      img-alt="Fraud Reporting Image"
+      img-top
+      style=" margin: auto; padding: 2rem"
+      class="mb-4"
+    >
+      <p class="disclaimer">
+        Disclaimer: Please fill out the form to report possible
+        scam incidents. Avoid providing any personal opinions or unverified
+        information. We will also scan through them and update our database according to the verified information.
+      </p>
+      <div class="form">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdRLFoGfDsSLrUNktxsyUPqSq3-X_hYh2mVJaWfutDAQcj-gg/viewform?embedded=true"
+          width="100%"
+          height="1002"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+        >
+          Yükleniyor…
+        </iframe>
+      </div>
+    </b-card>
   </div>
 </template>
 
 <script>
-import FraudReportModal from '../components/FraudReportModal.vue';
-
 export default {
   name: 'FraudReport',
-  components: {
-    FraudReportModal,
-  },
-  data() {
-    return {
-      selectedCity: '',
-      selectedFraud: '',
-      cities: [],
-      filteredFraudTypes: [],
-      showModal: false,
-    };
-  },
-  created() {
-    this.fetchCities();
-  },
   methods: {
-    async fetchCities() {
-  try {
-    const response = await fetch('http://localhost:4000/api/cities');
-    if (!response.ok) throw new Error('Error fetching cities');
-    const data = await response.json();
-    this.cities = data.map(city => city.city); // Extract city names
-    } catch (error) {
-    console.error('Error fetching cities:', error);
-    }
-  },
-    async fetchFraudBehaviors() {
-      this.fraudBehaviors = [];
-      this.buttonClicked = false;
-
-      try {
-        const response = await fetch(`http://localhost:4000/api/scams/${this.selectedCity}`);
-        if (!response.ok) throw new Error('Error fetching scams');
-        const data = await response.json();
-
-        this.fraudBehaviors = (data.scams || []).map(scam => ({
-          ...scam,
-          counter: scam.counter,
-        }));
-        this.buttonClicked = true;
-      } catch (error) {
-        console.error('Error fetching scams:', error);
-      }
-    },
     submitReport() {
-      console.log('City:', this.selectedCity);
-      console.log('Fraud Type:', this.selectedFraud);
-      this.showModal = true;
-      this.selectedCity = '';
-      this.selectedFraud = '';
+      console.log('Submit button clicked');
     },
   },
 };
@@ -96,20 +42,11 @@ export default {
 
 <style scoped>
 .fraud-report {
-  padding: 2rem;
-  background-color: #f3f4f6; /* Light Gray Background */
-  border-radius: 10px;
-  max-width: 450px;
-  margin: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
 }
 
-h2 {
-  margin-bottom: 1rem;
-  color: #1f2937; /* Slate for the header */
-  text-align: center;
-  font-size: 1.8rem;
-}
 
 .disclaimer {
   font-size: 0.95rem;
@@ -118,56 +55,14 @@ h2 {
   text-align: center;
 }
 
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #374151; /* Dark Slate for labels */
-  font-size: 1rem;
+.form {
+  display: flex;
+  justify-content: center; /* Center the iframe horizontally */
 }
 
-select {
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1.5rem;
-  border-radius: 5px;
-  border: 1px solid #d1d5db; /* Light Gray border */
-  background-color: #ffffff; /* White background for select boxes */
-  font-size: 1rem;
-}
-
-button {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: #3b82f6; /* Blue button background */
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #2563eb; /* Darker blue on hover */
-}
-
-button:active {
-  background-color: #1d4ed8; /* Even darker blue on active click */
-}
-
-/* Media Queries for responsiveness */
-@media (max-width: 480px) {
-  .fraud-report {
-    padding: 1.5rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  button {
-    padding: 0.6rem;
-    font-size: 0.9rem;
-  }
+iframe {
+  max-width: 100%; /* Ensure iframe doesn't overflow */
+  height: 1002px; /* Set the height */
+  border: none; /* Remove the default border */
 }
 </style>

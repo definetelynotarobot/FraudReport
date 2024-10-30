@@ -19,7 +19,7 @@
   <h2 class="section-title">How to Recognize Scams</h2>
   <ul class="list">
     <li><span class="emoji">🤔</span> <span><strong>Unusual Behavior: </strong>If someone approaches you aggressively or seems overly friendly, trust your instincts and walk away.</span></li>
-    <li><span class="emoji">💥</span> <span><strong>Too Good to Be True Offers:</strong> If a deal seems too good to be true, it probably is. Always question suspicious offers.</span></li>
+    <li><span class="emoji">💥</span> <span><strong>"Too Good to Be True" Offers:</strong> If a deal seems "too good to be true", it probably is. Always question suspicious offers.</span></li>
     <li><span class="emoji">⏳</span> <span><strong>Pressure Tactics:</strong> Scammers may rush you to make a decision. Take your time to think things through and don’t hesitate to say no.</span></li>
   </ul>
 </section>

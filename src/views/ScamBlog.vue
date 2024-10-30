@@ -9,26 +9,27 @@
     </section>
 
     <section class="posts">
-      <article class="post" @click="togglePost">
-        <div class="post-header">
-          <h3>🌍 Why We Built This Website</h3>
-        </div>
-        <div class="post-content" v-if="activePost">
-          <p>
-            In an age where travel is more accessible than ever, the excitement of exploring new destinations can sometimes be overshadowed by the lurking dangers of scams targeting unsuspecting tourists. That's why we decided to create this platform—to empower travelers with essential knowledge about potential scams and frauds they might encounter on their journeys.
-          </p>
-          <p>
-            Our mission is simple: to provide a safe space where travelers can share their experiences, warn others, and learn how to navigate the complexities of tourism with confidence. We believe that informed travelers are safer travelers. Every story shared here contributes to a community-driven resource that can help someone else avoid a costly mistake or, worse, a dangerous situation. 🌟
-          </p>
-          <p>
-            We aim to cover a wide range of scams, from the subtle to the outrageous, and provide practical tips on how to identify and avoid them. Whether you’re wandering the bustling streets of a new city or lounging on a tropical beach, we want you to feel empowered and secure in your travels. 
-          </p>
-          <p>
-            Join us in our mission to create a safer travel experience for everyone! If you have tips or stories to share, we invite you to contribute to our growing community. Together, we can make the world of travel a little brighter and a lot safer. ✈️✨
-          </p>
-        </div>
-      </article>
-    </section>
+  <article class="post heartbeat" @click="togglePost" :class="{ 'is-clickable': true }">
+    <div class="post-header">
+      <h3>🌍 Why We Built This Website ?</h3>
+    </div>
+    <div class="post-content" v-if="activePost">
+      <p>
+        In an age where travel is more accessible than ever, the excitement of exploring new destinations can sometimes be overshadowed by the lurking dangers of scams targeting unsuspecting tourists. That's why we decided to create this platform—to empower travelers with essential knowledge about potential scams and frauds they might encounter on their journeys.
+      </p>
+      <p>
+        Our mission is simple: to provide a safe space where travelers can share their experiences, warn others, and learn how to navigate the complexities of tourism with confidence. We believe that informed travelers are safer travelers. Every story shared here contributes to a community-driven resource that can help someone else avoid a costly mistake or, worse, a dangerous situation. 🌟
+      </p>
+      <p>
+        We aim to cover a wide range of scams, from the subtle to the outrageous, and provide practical tips on how to identify and avoid them. Whether you’re wandering the bustling streets of a new city or lounging on a tropical beach, we want you to feel empowered and secure in your travels. 
+      </p>
+      <p>
+        Join us in our mission to create a safer travel experience for everyone! If you have tips or stories to share, we invite you to contribute to our growing community. Together, we can make the world of travel a little brighter and a lot safer. ✈️✨
+      </p>
+    </div>
+  </article>
+</section>
+
 
     <section class="contact">
       <h2 class="cta-title">Get Involved</h2>
@@ -65,6 +66,33 @@ export default {
   background-color: #f3f4f6; /* Light Gray background */
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.posts .post {
+  cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.posts .post.is-clickable:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+.heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
 h1 {

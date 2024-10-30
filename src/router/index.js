@@ -22,7 +22,7 @@ const routes = [
     component: CitySelection,
   },
   {
-    path: '/report-scams',
+    path: '/Share-Experience',
     name: 'FraudReport', // Add this route for the Fraud Report
     component: FraudReport,
   },

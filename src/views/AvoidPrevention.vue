@@ -48,7 +48,7 @@
       <section class="section section-cta">
         <h2 class="section-title">Share Your Experience</h2>
         <p>
-          Encourage users to share their experiences with scams in the comments or through a submission form. This can help build a community of informed travelers.
+          Share your experiences through a submission form. This can help build a community of informed travelers.
         </p>
         <router-link to="/share-experience" class="button">Share Your Experience</router-link>
       </section>

@@ -15,7 +15,8 @@
           src="@/assets/hero/hero-img-4.webp" 
           alt="Infographic with Luggage"
           class="hero-img"
-          rel="preload"
+          loading="eager"
+  fetchpriority="high"
         />
       </div>
     </div>

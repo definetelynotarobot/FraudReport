@@ -61,4 +61,10 @@ export default {
   display: flex;
   justify-content: flex-end;
 }
+.modal-footer button {
+  border:none;
+  color:white;
+  background-color: blue;
+  border-radius:5px;
+}
 </style>

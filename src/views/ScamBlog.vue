@@ -11,12 +11,13 @@
     <section class="posts">
       <article 
         :class="{'post heartbeat': !isClicked, 'post': isClicked}" 
-        @click="togglePost"
+        @click="togglePost('mission')"
       >
         <div class="post-header">
           <h3>🌍 Why We Built This Website</h3>
+          <span class="post-date">Published: October 15, 2024</span>
         </div>
-        <div class="post-content" v-if="activePost">
+        <div class="post-content" v-if="activePost === 'mission'">
           <p>
             In an age where travel is more accessible than ever, the excitement of exploring new destinations can sometimes be overshadowed by the lurking dangers of scams targeting unsuspecting tourists. That's why we decided to create this platform—to empower travelers with essential knowledge about potential scams and frauds they might encounter on their journeys.
           </p>
@@ -24,10 +25,66 @@
             Our mission is simple: to provide a safe space where travelers can share their experiences, warn others, and learn how to navigate the complexities of tourism with confidence. We believe that informed travelers are safer travelers. Every story shared here contributes to a community-driven resource that can help someone else avoid a costly mistake or, worse, a dangerous situation. 🌟
           </p>
           <p>
-            We aim to cover a wide range of scams, from the subtle to the outrageous, and provide practical tips on how to identify and avoid them. Whether you’re wandering the bustling streets of a new city or lounging on a tropical beach, we want you to feel empowered and secure in your travels. 
+            We aim to cover a wide range of scams, from the subtle to the outrageous, and provide practical tips on how to identify and avoid them. Whether you're wandering the bustling streets of a new city or lounging on a tropical beach, we want you to feel empowered and secure in your travels. 
           </p>
           <p>
             Join us in our mission to create a safer travel experience for everyone! If you have tips or stories to share, we invite you to contribute to our growing community. Together, we can make the world of travel a little brighter and a lot safer. ✈️✨
+          </p>
+        </div>
+      </article>
+      <article 
+        class="post" 
+        @click="togglePost('digital')"
+      >
+        <div class="post-header">
+          <h3>🌐 Digital Dangers: Emerging Travel Scams in the Internet Age</h3>
+          <span class="post-date">Published: October 22, 2024</span>
+        </div>
+        <div class="post-content" v-if="activePost === 'digital'">
+          <p>
+            As technology advances, so do the methods of scammers targeting travelers. Digital travel scams have become increasingly sophisticated, catching even the most cautious tourists off guard.
+          </p>
+          <p>
+            One emerging trend is fake booking websites that look incredibly legitimate. These sites mirror authentic travel platforms, offering seemingly unbeatable deals on accommodations and flights. The catch? Your personal and payment information is stolen, or you arrive at your destination to find no reservation exists.
+          </p>
+          <p>
+            Another growing concern is social media impersonation scams. Fraudsters create detailed profiles mimicking travel agencies, tour operators, and even individual travelers. They engage potential victims with convincing stories, ultimately attempting to extract money or sensitive information.
+          </p>
+          <p><b> Protect yourself by: <br>
+            - Always verify website authenticity <br>
+            - Use secure, reputable booking platforms <br>
+            - Be skeptical of deals that seem "too good to be true" <br>
+            - Check website security certificates <br>
+            - Use credit cards with fraud protection<br></b>
+          </p>
+        </div>
+      </article>
+
+      <!-- Third Post: Cultural Awareness and Scam Prevention -->
+      <article 
+        class="post" 
+        @click="togglePost('cultural')"
+      >
+        <div class="post-header">
+          <h3>🌏 Cultural Intelligence: Your Best Scam Defense</h3>
+          <span class="post-date">Published: October 22, 2024</span>
+        </div>
+        <div class="post-content" v-if="activePost === 'cultural'">
+          <p>
+            Understanding local customs and cultural nuances isn't just about respect—it's also a powerful tool in preventing travel scams. Many fraudulent schemes exploit tourists' lack of local knowledge and cultural context.
+          </p>
+          <p>
+            Take, for instance, street vendor scams common in tourist-heavy destinations. In some countries, what might seem like a friendly interaction can quickly turn into an aggressive sales pitch or even a sophisticated theft attempt. Knowing local interaction norms can help you navigate these situations confidently.
+          </p>
+          <p>
+            Language barriers often make travelers vulnerable. Scammers may use complex local dialects or rapid speech to confuse and manipulate. Learning basic local phrases and maintaining a polite but firm demeanor can significantly reduce your risk.
+          </p>
+          <p><b> Tips for cultural scam prevention: <br>
+            - Research local customs before traveling<br>
+            - Learn basic local language phrases<br>
+            - Observe how locals interact<br>
+            - Trust your instincts<br>
+            - Stay confident and composed<br></b>
           </p>
         </div>
       </article>
@@ -47,14 +104,13 @@ export default {
   name: 'ScamBlog',
   data() {
     return {
-      activePost: false, // Track whether the post content is visible
-      isClicked: false // Track whether the post has been clicked to stop pulse
+      activePost: null // Track which post is active
     };
   },
   methods: {
-    togglePost() {
-      this.activePost = !this.activePost;
-      this.isClicked = true; // Stop the heartbeat animation after clicking once
+    togglePost(postId) {
+      this.activePost = this.activePost === postId ? null : postId;
+      this.isClicked = true;
     }
   }
 };

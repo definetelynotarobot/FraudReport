@@ -52,6 +52,7 @@ export default {
   #cookies-popup p {
     margin: 10px 0; /* Smaller margins for mobile */
     font-size: 1em; /* Responsive font size */
+    color:white;
   }
 
   .btn-cont {

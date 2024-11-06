@@ -48,7 +48,7 @@
             One emerging trend is fake booking websites that look incredibly legitimate. These sites mirror authentic travel platforms, offering seemingly unbeatable deals on accommodations and flights. The catch? Your personal and payment information is stolen, or you arrive at your destination to find no reservation exists.
           </p>
           <p>
-            Another growing concern is social media impersonation scams. Fraudsters create detailed profiles mimicking travel agencies, tour operators, and even individual travelers. They engage potential victims with convincing stories, ultimately attempting to extract money or sensitive information.
+            Another growing concern is social media impersonation scams. Scammers create detailed profiles mimicking travel agencies, tour operators, and even individual travelers. They engage potential victims with convincing stories, ultimately attempting to extract money or sensitive information.
           </p>
           <p><b> Protect yourself by: <br>
             - Always verify website authenticity <br>

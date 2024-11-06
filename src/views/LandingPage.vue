@@ -12,12 +12,11 @@
       </div>
       <div class="hero">
         <img
-  src="@/assets/hero/hero-img-4.webp" 
-  alt="Infographic with Luggage"
-  class="hero-img"
-  loading="eager"
-  fetchpriority="high"
-/>
+        src="@/assets/hero/hero-img-4.webp" 
+        alt="Infographic with Luggage"
+        class="hero-img"
+        loading="eager"
+        fetchpriority="high"/>
       </div>
     </div>
 
@@ -144,12 +143,10 @@ export default {
   display: flex;
   justify-content: center; /* Center the image horizontally */
   align-items: center; /* Center the image vertically */
-
 }
 .hero-img {
   max-width: 100%; /* Make sure the image is responsive */
   height: auto; /* Maintain aspect ratio */
-  transition: opacity 1s ease-in-out; /* Smooth transition */
 }
 h1 {
   font-family: 'Montserrat', sans-serif; /* Restore original font */
@@ -160,6 +157,7 @@ h1 {
 
 p {
   font-family: 'Montserrat', sans-serif; /* Restore original font */
+  font-display: swap;
   font-size: 1.3em;
   font-weight: 500;
   margin-bottom: 2em;
@@ -168,6 +166,7 @@ p {
 
 .cta-button {
   font-family: "Montserrat";
+  font-display: swap;
   font-weight:500;
   padding: 12px 24px;
   font-size: 1.2em;

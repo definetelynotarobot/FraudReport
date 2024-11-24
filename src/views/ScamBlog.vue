@@ -15,6 +15,13 @@
 
       <!-- Articles Section -->
       <section v-if="activeSection === 'articles'" class="articles">
+        <header class="safety-header">
+      <h1>Stay Safe While Exploring the World</h1>
+      <p class="disclaimer">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>This information is provided for general educational purposes only and should not be considered as legal or security advice. Always consult local authorities or legal professionals for specific situations.</span>
+      </p>
+    </header>
         <div class="filters">
           <button 
             v-for="tag in tags" 
@@ -324,6 +331,28 @@ export default {
 </script>
 
 <style scoped>
+.safety-header h1{
+  color:#2563eb;
+  font-weight: bold;
+  
+}
+.disclaimer {
+  color: black;
+  font-size: 0.9rem;
+  max-width: 800px;
+  border:#2563eb 1px solid;
+  border-radius: 10px;
+  display:flex;
+  padding:10px;
+  i{
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#ef4444;
+    margin-right:10px;
+  }
+}
 .blog-container {
   min-height: 100vh;
   background-color: #f8fafc;
@@ -469,13 +498,13 @@ export default {
   padding-left: 1.5rem;
   position: relative;
 }
-
+/*
 .tip-item::before {
   content: "•";
   position: absolute;
   left: 0.5rem;
   color: #2563eb;
-}
+}*/
 
 .post-footer {
   margin-top: 1.5rem;

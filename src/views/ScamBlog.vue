@@ -82,45 +82,6 @@
         </TransitionGroup>
       </section>
 
-      <!-- Share Story Section -->
-      <section v-if="activeSection === 'share story'" class="share-story">
-        <h2>Share Your Experience</h2>
-        <form @submit.prevent="submitStory" class="story-form">
-          <div class="form-group">
-            <label>Title</label>
-            <input v-model="newStory.title" required class="form-input" />
-          </div>
-          <div class="form-group">
-            <label>Your Story</label>
-            <textarea 
-              v-model="newStory.content" 
-              required 
-              class="form-textarea"
-              rows="5"
-            ></textarea>
-          </div>
-          <div class="form-group">
-            <label>Location</label>
-            <input v-model="newStory.location" required class="form-input" />
-          </div>
-          <div class="form-group">
-            <label>Tags</label>
-            <div class="tag-selector">
-              <button 
-                v-for="tag in tags"
-                :key="tag"
-                type="button"
-                @click="toggleStoryTag(tag)"
-                :class="{ 'selected': newStory.tags.includes(tag) }"
-                class="tag-button"
-              >
-                {{ tag }}
-              </button>
-            </div>
-          </div>
-          <button type="submit" class="submit-button">Share Story</button>
-        </form>
-      </section>
     </main>
 
     <!-- Notification Component -->
@@ -310,29 +271,12 @@ export default {
         this.selectedTags.push(tag);
       }
     },
-    likePost(postId) {
-      const post = this.posts.find(p => p.id === postId);
-      if (post) {
-        post.likes++;
-        this.showNotification('Thanks for your feedback!', 'success');
-      }
-    },
     toggleStoryTag(tag) {
       if (this.newStory.tags.includes(tag)) {
         this.newStory.tags = this.newStory.tags.filter(t => t !== tag);
       } else {
         this.newStory.tags.push(tag);
       }
-    },
-    submitStory() {
-      // Simulate story submission
-      this.showNotification('Your story has been submitted for review!', 'success');
-      this.newStory = {
-        title: '',
-        content: '',
-        location: '',
-        tags: []
-      };
     },
     showNotification(message, type = 'info') {
       this.notification = { message, type };
@@ -350,7 +294,7 @@ export default {
     const shareData = {
       title: post.title,
       text: post.content[0], // Use the first paragraph as a preview
-      url: window.location.origin + `/post/${postId}`
+      url: window.location.origin + `/blog`
     };
 
     if (navigator.share) {
@@ -442,21 +386,6 @@ export default {
   margin: 1rem auto;
   font-size: 1.25rem;
   line-height: 1.75;
-}
-
-.cta-button {
-  background-color: white;
-  color: #2563eb;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.cta-button:hover {
-  transform: translateY(-2px);
 }
 
 .filters {
@@ -572,28 +501,6 @@ export default {
   background: #f8fafc;
 }
 
-.story-form {
-  max-width: 800px;
-  margin: 0 auto;
-  background: white;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-input,
-.form-textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 0.5rem;
-  margin-top: 0.5rem;
-}
-
 .tag-selector {
   display: flex;
   gap: 0.5rem;
@@ -622,21 +529,6 @@ export default {
   border-color: #2563eb;
 }
 
-.submit-button {
-  width: 100%;
-  padding: 1rem;
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.submit-button:hover {
-  background: #1d4ed8;
-}
 
 .notification {
   position: fixed;

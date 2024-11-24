@@ -265,6 +265,13 @@ export default {
   box-shadow: 0 4px 6px rgba(59, 130, 246, 0.25);
   transition: all 0.3s ease;
 }
+@media (min-width: 768px) {
+
+  
+  .custom-button {
+    margin-left:10px;
+  }
+}
 
 .custom-button:hover:not(:disabled) {
   background-color: #2563eb;

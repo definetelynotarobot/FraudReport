@@ -1,162 +1,269 @@
 <template>
-<header class="app-header">
-  <div class="logo">
-    <router-link to="/">
-      <div class="container">
-        <img :src="require('@/assets/logo.png')" alt="Tourist Guard Logo" class="logo-image" loading="lazy"/>
-        <h1 class="logo-header">Tourist Guards</h1>
-      </div>
-    </router-link>
-  </div>
-  <nav>
-    <ul>
-      <li><router-link to="/">Home</router-link></li>
-      <li><router-link to="/blog">Blog</router-link></li>
-      <li><router-link to="/scams">Reported Scams</router-link></li>
-      <li><router-link to="/Avoid">Avoid/Prevention</router-link></li>
-      <li><router-link to="/Share-Experience">Share Experience</router-link></li>
-      
-    </ul>
-  </nav>
-</header>
+  <header class="app-header">
+    <div class="header-container">
+      <router-link to="/" class="logo-wrapper">
+        <div class="logo-container">
+          <img :src="require('@/assets/logo.png')" alt="Tourist Guard Logo" class="logo-image" loading="lazy"/>
+          <h1 class="logo-text">Tourist Guards</h1>
+        </div>
+      </router-link>
 
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn" @click="isMenuOpen = !isMenuOpen">
+        <span class="hamburger-icon" :class="{ 'open': isMenuOpen }"></span>
+      </button>
+
+      <!-- Navigation -->
+      <nav class="nav-menu" :class="{ 'nav-open': isMenuOpen }">
+        <ul class="nav-list">
+          <li v-for="(item, index) in menuItems" :key="index" class="nav-item">
+            <router-link :to="item.path" class="nav-link" @click="isMenuOpen = false">
+              <i :class="item.icon"></i>
+              {{ item.name }}
+            </router-link>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 </template>
 
 <script>
 export default {
   name: "AppHeader",
+  data() {
+    return {
+      isMenuOpen: false,
+      menuItems: [
+        { name: 'Home', path: '/', icon: 'fas fa-home' },
+        { name: 'Blog', path: '/blog', icon: 'fas fa-blog' },
+        { name: 'Reported Scams', path: '/scams', icon: 'fas fa-exclamation-triangle' },
+        { name: 'Avoid/Prevention', path: '/Avoid', icon: 'fas fa-shield-alt' },
+        { name: 'Share Experience', path: '/Share-Experience', icon: 'fas fa-share-alt' }
+      ]
+    };
+  }
 };
 </script>
 
 <style scoped>
-.container{
-  display:inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  padding:0;
-}
-.logo{
-  display:flex;
-  align-items: center;
-}
-.logo-image {
-  width: 75px; /* Adjust the width as needed */
-  height: 85px; /* Maintain aspect ratio */
-  margin-right:10px;
-  animation: fadeIn 1s ease-in-out;
-}
-/* Animation keyframes for h1 text coming from logo */
-@keyframes slideFromLogo {
-  0% {
-    transform: translateX(-100%); /* Start from the logo */
-    opacity: 0; /* Invisible at start */
-  }
-  100% {
-    transform: translateX(0); /* End at normal position */
-    opacity: 1; /* Fully visible */
-  }
-}
-
-/* Fade-in effect for logo */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-h1.logo-header{
-  display:inline-flex;
-  opacity: 0; /* Initially hidden */
-  transform: translateX(-100%); /* Positioned off-screen initially */
-  animation: slideFromLogo 1s ease-out 0.5s forwards; /* Animation starts with a delay */
-}
-
 .app-header {
-  background-color: #1e3a8a; /* Deep Blue */
-  color: white; /* Text color */
-  padding: 20px;
+  background: linear-gradient(to right, #1e3a8a, #2563eb);
+  padding: 0.75rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* For responsiveness */
 }
 
-.logo {
-  text-align: left;
-  display:contents;
-}
-
-h1 {
-  margin: 0;
-  font-size: 2.0rem; /* Larger for the header */
+.logo-wrapper {
+  text-decoration: none;
   color: white;
 }
 
-p {
-  margin: 0;
-  font-size: 1.1rem;
-  color: #f97316; /* Accent color: Orange */
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.logo-container {
   display: flex;
-  flex-wrap: wrap; /* Make it responsive */
+  align-items: center;
+  gap: 1rem;
 }
 
-nav ul li {
-  margin-left: 20px;
+.logo-image {
+  width: 60px;
+  height: 70px;
+  object-fit: contain;
+  animation: logoAppear 0.8s ease-out;
 }
 
-nav ul li a {
-  font-family: "Montserrat";
-  color: white; /* Link color */
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  animation: textSlide 0.8s ease-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-menu {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
-  font-size: 1.1rem; /* Increase size */
-  padding: 5px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-nav ul li a:hover {
-  background-color: #3b82f6; /* Light Blue on hover */
+.nav-link i {
+  font-size: 1.1rem;
+  opacity: 0.8;
 }
 
-/* Responsiveness */
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.nav-link.router-link-active {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.hamburger-icon {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.hamburger-icon::before {
+  top: -8px;
+}
+
+.hamburger-icon::after {
+  bottom: -8px;
+}
+
+.hamburger-icon.open {
+  background: transparent;
+}
+
+.hamburger-icon.open::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.hamburger-icon.open::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+
+@keyframes logoAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .nav-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+  }
+}
+
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
+  .mobile-menu-btn {
+    display: block;
   }
 
-  nav ul {
-    justify-content: center;
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, #1e3a8a, #2563eb);
+    padding: 1rem;
+    clip-path: circle(0% at top right);
+    transition: clip-path 0.4s ease-out;
+    flex-direction: column;
   }
 
-  nav ul li {
-    margin-left: 10px;
+  .nav-menu.nav-open {
+    clip-path: circle(150% at top right);
   }
 
-  nav ul li a {
-    font-size: 1rem;
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .nav-link {
+    padding: 1rem;
+    justify-content: flex-start;
+  }
+
+  .logo-image {
+    width: 50px;
+    height: 60px;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  h1 {
-    font-size: 1.8rem;
+  .logo-text {
+    font-size: 1.3rem;
   }
 
-  p {
-    font-size: 0.9rem;
-  }
-
-  nav ul li a {
-    font-size: 0.9rem;
+  .logo-image {
+    width: 40px;
+    height: 50px;
   }
 }
 </style>

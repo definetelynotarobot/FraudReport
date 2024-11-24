@@ -68,11 +68,7 @@
                 </div>
                 <div class="post-footer">
                   <div class="engagement">
-                    <button @click.stop="likePost(post.id)" 
-                            class="engagement-button"
-                    >
-                      👍 {{ post.likes }}
-                    </button>
+
                     <button @click.stop="sharePost(post.id)"
                             class="engagement-button"
                     >

@@ -17,10 +17,10 @@
       <template v-if="modalType === 'privacy'">
         <p class="modal-text">
           Your privacy is important to us. This policy explains what data we collect and how we use it.
-          <a href="privacy-policy.html" id="privacy-policy-link">Show Privacy Policy</a></p>
+          <a href="/privacy-policy" id="privacy-policy-link">Show Privacy Policy</a></p>
       </template>
       <template v-else-if="modalType === 'terms'">
-        <p class="modal-text">By using our site, you agree to the following terms...<a href="terms-of-use.html" id="privacy-policy-link">Show Terms Of Use</a></p>
+        <p class="modal-text">By using our site, you agree to the following terms...<a href="/terms-of-use" id="privacy-policy-link">Show Terms Of Use</a></p>
       </template>
     </PolicyModal>
   </footer>

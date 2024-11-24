@@ -299,6 +299,7 @@ export default {
     }
   },
   methods: {
+    
     togglePost(postId) {
       this.activePost = this.activePost === postId ? null : postId;
     },
@@ -338,7 +339,42 @@ export default {
       setTimeout(() => {
         this.notification = null;
       }, 3000);
+    },
+    sharePost(postId) {
+    const post = this.posts.find(p => p.id === postId);
+    if (!post) {
+      this.showNotification('Post not found.', 'error');
+      return;
     }
+
+    const shareData = {
+      title: post.title,
+      text: post.content[0], // Use the first paragraph as a preview
+      url: window.location.origin + `/post/${postId}`
+    };
+
+    if (navigator.share) {
+      // Use the Web Share API
+      navigator.share(shareData)
+        .then(() => {
+          this.showNotification('Post shared successfully!', 'success');
+        })
+        .catch(err => {
+          console.error('Sharing failed:', err);
+          this.showNotification('Unable to share the post.', 'error');
+        });
+    } else {
+      // Fallback: Copy the URL to clipboard
+      navigator.clipboard.writeText(shareData.url)
+        .then(() => {
+          this.showNotification('Post link copied to clipboard!', 'success');
+        })
+        .catch(err => {
+          console.error('Copying failed:', err);
+          this.showNotification('Unable to copy the post link.', 'error');
+        });
+    }
+  }
   }
 }
 </script>

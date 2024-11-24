@@ -1,350 +1,336 @@
 <template>
-  <div class="container">
-    <div class="landing-page">
+  <div class="landing-container">
+    <!-- Hero Section -->
+    <section class="hero">
       <div class="content">
-        <h1>Better safe than <span class="head-style-txt">sorry</span></h1>
-        <p>
-          Are you traveling soon? Stay informed about potential scam risks in various cities.
-        </p>
-        <router-link to="/scams">
-          <button class="cta-button">Discover possible scams</button>
-        </router-link>
+        <div class="animated-text">
+          <h1>Better safe than <span class="highlight">sorry</span></h1>
+          <p class="subtitle">Stay informed about potential travel risks in various cities worldwide.</p>
+          <router-link to="/scams" class="cta-button">
+            Discover Possible Scams
+          </router-link>
+        </div>
       </div>
-      <div class="hero">
-        <img
-        src="@/assets/hero/hero-img-4.webp" 
-        alt="Infographic with Luggage"
-        class="hero-img"
-        loading="eager"
-        fetchpriority="high"/>
-      </div>
-    </div>
-
-    <!-- About Us Section -->
-    <section class="about-us" id="about">
-      <div class="section-header">
-        <h2>Who We Are</h2>
-        <p>Empowering travelers with knowledge and protection</p>
-      </div>
-      <div class="about-content">
-        <div class="about-text">
-          <h3>Protecting Your Journey</h3>
-          <p>
-            We're a dedicated team committed to helping travelers stay safe. 
-            Our mission is to provide up-to-date, comprehensive information 
-            about potential scams and risks in various destinations worldwide.
-          </p>
-          <div class="about-stats">
-            <div class="stat-item">
-          <div class="stat-icon">🌍</div>
-          <h3>50+</h3>
-          <p>Cities Covered</p>
+      
+      <!-- Animated Background -->
+      <div class="animated-background">
+        <!-- Passport -->
+        <div class="floating-icon passport">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="2" y="3" width="20" height="18" rx="2" />
+            <circle cx="12" cy="10" r="3" />
+            <path d="M6 17h12" />
+          </svg>
         </div>
-        <div class="stat-item">
-          <div class="stat-icon">⚠️</div>
-          <h3>100+</h3>
-          <p>Scams Documented</p>
+        <!-- Plane -->
+        <div class="floating-icon plane">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M22 12L3 20l3.5-8L3 4l19 8z" />
+          </svg>
         </div>
-        <div class="stat-item">
-          <div class="stat-icon">👥</div>
-          <h3>5K+</h3>
-          <p>Travelers Protected</p>
+        <!-- Shield -->
+        <div class="floating-icon shield">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
         </div>
-        <div class="stat-item">
-          <div class="stat-icon">📱</div>
-          <h3>24/7</h3>
-          <p>Available in any device</p>
+        <!-- Map Pin -->
+        <div class="floating-icon map-pin">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
         </div>
-          </div>
+        <!-- Alert -->
+        <div class="floating-icon alert">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 8v4M12 16h.01" />
+            <path d="M12 2L2 20h20L12 2z" />
+          </svg>
         </div>
       </div>
     </section>
-    
-    <!-- Feature Highlights Section -->
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="stats-grid">
+        <div v-for="(stat, index) in stats" 
+             :key="index" 
+             class="stat-card"
+             :class="{ 'appear': true }">
+          <div class="stat-icon">{{ stat.icon }}</div>
+          <h3>{{ stat.value }}</h3>
+          <p>{{ stat.label }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
     <section class="features-section">
       <h2>Why Choose Our Platform?</h2>
       <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🔍</div>
-          <h3>Real-Time Updates</h3>
-          <p>Get the latest information about emerging scams and threats in various destinations.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <h3>Mobile Friendly</h3>
-          <p>Access critical information on-the-go from any device, anywhere in the world.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">👥</div>
-          <h3>Community Verified</h3>
-          <p>Real experiences shared by real travelers, verified by our expert team.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔔</div>
-          <h3>Alert System</h3>
-          <p>Receive insights about new/existing scams in your planned destination.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section class="how-it-works">
-      <h2>How It Works</h2>
-      <div class="steps-container">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Select Destination</h3>
-          <p>Choose your travel destination from our comprehensive database.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Review Risks</h3>
-          <p>Get detailed information about known scams and safety concerns.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Stay Informed</h3>
-          <p>Receive updates and insights about new threats in your chosen location.</p>
+        <div v-for="(feature, index) in features" 
+             :key="index"
+             class="feature-card">
+          <div class="feature-icon">{{ feature.icon }}</div>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
         </div>
       </div>
     </section>
   </div>
 </template>
 
-
 <script>
 export default {
-  name: "LandingPage"
-};
+  name: 'LandingPage',
+  data() {
+    return {
+      stats: [
+        { icon: '🌍', value: '50+', label: 'Cities Covered' },
+        { icon: '⚠️', value: '100+', label: 'Scams Documented' },
+        { icon: '👥', value: '5K+', label: 'Travelers Protected' },
+        { icon: '📱', value: '24/7', label: 'Available Support' }
+      ],
+      features: [
+        {
+          icon: '🔍',
+          title: 'Real-Time Updates',
+          description: 'Get the latest information about emerging scams and threats in various destinations.'
+        },
+        {
+          icon: '📱',
+          title: 'Mobile Friendly',
+          description: 'Access critical information on-the-go from any device, anywhere in the world.'
+        },
+        {
+          icon: '👥',
+          title: 'Community Verified',
+          description: 'Real experiences shared by real travelers, verified by our expert team.'
+        },
+        {
+          icon: '🔔',
+          title: 'Alert System',
+          description: 'Receive insights about new/existing scams in your planned destination.'
+        }
+      ]
+    }
+  }
+}
 </script>
 
 <style scoped>
-.landing-page {
-  display: flex;
-  align-items: center; /* Center items vertically */
-  height: 100vh;
-  background-color: white; /* Soft Gray */
-  padding: 20px; /* Responsive padding for smaller screens */
-}
-
-.content {
-  flex: 1; /* Take up remaining space */
-  text-align: left; /* Align text to the left */
-}
-.head-style-txt{
-  color:#dc143c;
-  background-color: white;
-  font-weight:bold;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+.landing-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
 }
 
 .hero {
-  flex: 1; /* Take up remaining space */
+  position: relative;
+  min-height: 90vh;
   display: flex;
-  justify-content: center; /* Center the image horizontally */
-  align-items: center; /* Center the image vertically */
-}
-.hero-img {
-  max-width: 100%; /* Make sure the image is responsive */
-  height: auto; /* Maintain aspect ratio */
-}
-h1 {
-  font-family: 'Montserrat', sans-serif; /* Restore original font */
-  font-size: 4em;
-  margin-bottom: 0.5em;
-  color: #1e3a8a; /* Deep Blue */
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  overflow: hidden;
 }
 
-p {
-  font-family: 'Montserrat', sans-serif; /* Restore original font */
-  font-display: swap;
-  font-size: 1.3em;
-  font-weight: 500;
-  margin-bottom: 2em;
-  color: #374151; /* Dark Gray for text */
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.animated-text h1 {
+  font-size: 5rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 1.5rem;
+  animation: slideUp 0.8s ease-out;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #dc143c;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: inline-block;
+}
+
+.subtitle {
+  font-size: 1.8rem;
+  color: #4b5563;
+  margin-bottom: 2.5rem;
+  animation: slideUp 0.8s ease-out 0.2s backwards;
+  line-height: 1.4;
 }
 
 .cta-button {
-  font-family: "Montserrat";
-  font-display: swap;
-  font-weight:500;
-  padding: 12px 24px;
-  font-size: 1.2em;
-  color: #fff;
-  background-color: #3b82f6; /* Light Blue */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  display: inline-block;
+  padding: 1.2rem 3rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  animation: slideUp 0.8s ease-out 0.4s backwards;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
 }
 
 .cta-button:hover {
-  background-color: #1e3a8a; /* Deep Blue on hover */
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.3);
 }
 
-/* Responsiveness */
+.animated-background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.floating-icon {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  opacity: 0.08;
+  animation: float ease-in-out infinite;
+}
+
+.floating-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 1.5;
+}
+
+/* Positioning and specific animations for each icon */
+.passport {
+  top: 20%;
+  left: 15%;
+  animation-duration: 4s;
+  animation-delay: 0s;
+}
+
+.plane {
+  top: 40%;
+  right: 15%;
+  animation-duration: 6s;
+  animation-delay: 1s;
+  transform: rotate(-15deg);
+}
+
+.shield {
+  bottom: 30%;
+  left: 20%;
+  animation-duration: 5s;
+  animation-delay: 2s;
+}
+
+.map-pin {
+  top: 25%;
+  right: 25%;
+  animation-duration: 7s;
+  animation-delay: 1.5s;
+}
+
+.alert {
+  bottom: 25%;
+  right: 20%;
+  animation-duration: 5.5s;
+  animation-delay: 0.5s;
+}
+
+/* Enhanced float animation */
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+/* Rest of the animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .landing-page {
-    flex-direction: column; /* Stack vertically on smaller screens */
-    height: auto; /* Allow height to adjust */
+  .animated-text h1 {
+    font-size: 3.5rem;
   }
 
-  h1 {
-    font-size: 2em;
-  }
-
-  p {
-    font-size: 1.1em;
-    margin-bottom:10px;
+  .subtitle {
+    font-size: 1.4rem;
   }
 
   .cta-button {
-    font-size: 1em;
-    padding: 10px 20px;
-    margin-bottom:10px;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
   }
- 
 
-
-  .hero img {
-    max-width: 80%; /* Limit size on smaller screens */
+  .floating-icon {
+    width: 60px;
+    height: 60px;
   }
 }
 
 @media (max-width: 480px) {
-  h1 {
-    font-size: 1.8em;
+  .animated-text h1 {
+    font-size: 2.5rem;
   }
 
-  p {
-    font-size: 1em;
-  }
-  .content{
-    margin-bottom:10px;
+  .subtitle {
+    font-size: 1.2rem;
   }
 
   .cta-button {
-    font-size: 0.9em;
-    padding: 8px 16px;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  .floating-icon {
+    width: 40px;
+    height: 40px;
   }
 }
-/* About Us Section Base Styles */
-.about-us {
-  padding: 3rem 1rem;
-  background-color: #f8fafc;
-  width: 100%;
+/* Stats Section */
+.stats-section {
+  padding: 4rem 2rem;
+  background: white;
 }
 
-.section-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.section-header h2 {
-  font-family: 'Montserrat', sans-serif;
-  color: #1e3a8a;
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  margin-bottom: 0.5rem;
-}
-
-.section-header p {
-  color: #374151;
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  margin-bottom: 1.5rem;
-}
-
-.about-content {
+.stats-grid {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.about-text {
-  margin-bottom: 2rem;
-}
-
-.about-text h3 {
-  color: #1e3a8a;
-  font-size: clamp(1.5rem, 3vw, 1.8rem);
-  margin-bottom: 1rem;
-}
-
-.about-text p {
-  color: #374151;
-  line-height: 1.6;
-  font-size: clamp(0.9rem, 2vw, 1.1rem);
-  margin-bottom: 2rem;
-}
-
-/* Stats Grid Layout */
-.about-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
 }
 
-.stat-item {
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.stat-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
   text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.stat-item:hover {
-  transform: translateY(-5px);
-}
-
-.stat-icon {
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-  margin-bottom: 0.5rem;
-}
-
-.stat-item h3 {
-  color: #1e3a8a;
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  margin: 0.5rem 0;
-}
-
-.stat-item p {
-  color: #374151;
-  font-size: clamp(0.8rem, 1.5vw, 1rem);
-  margin: 0;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .about-us {
-    padding: 2rem 1rem;
-  }
-
-  .about-content {
-    padding: 0 0.5rem;
-  }
-
-  .about-stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-stats {
-    grid-template-columns: 1fr;
-  }
-
-  .stat-item {
-    padding: 1rem;
-  }
-}
-/* Quick Stats Section */
-
-.stat-item {
-  text-align: center;
-  flex: 1;
-  min-width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: appear 0.6s ease-out forwards;
 }
 
 .stat-icon {
@@ -352,38 +338,39 @@ p {
   margin-bottom: 1rem;
 }
 
-.stat-item h3 {
+.stat-card h3 {
+  font-size: 2.5rem;
   color: #1e3a8a;
-  font-size: 2rem;
   margin-bottom: 0.5rem;
 }
 
 /* Features Section */
 .features-section {
   padding: 4rem 2rem;
-  background-color: white;
+  background: #f8fafc;
 }
 
 .features-section h2 {
   text-align: center;
-  color: #1e3a8a;
   font-size: 2.5rem;
+  color: #1e3a8a;
   margin-bottom: 3rem;
 }
 
 .features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
 .feature-card {
+  background: white;
   padding: 2rem;
-  background-color: #f8fafc;
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
 }
 
@@ -396,58 +383,80 @@ p {
   margin-bottom: 1rem;
 }
 
-/* How It Works Section */
-.how-it-works {
-  background-color: #f8fafc;
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.how-it-works h2 {
+.feature-card h3 {
+  font-size: 1.5rem;
   color: #1e3a8a;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
-.steps-container {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 }
 
-.step {
-  flex: 1;
-  min-width: 250px;
-  padding: 2rem;
-  background-color: white;
-  border-radius: 10px;
-  position: relative;
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.step-number {
-  width: 40px;
-  height: 40px;
-  background-color: #3b82f6;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem;
-  font-weight: bold;
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .features-grid {
-    grid-template-columns: 1fr;
+  .hero {
+    padding: 1rem;
   }
 
-  .steps-container {
-    flex-direction: column;
+  .content {
+    margin-left: 5%;
+  }
+
+  .animated-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+  }
+
+  .floating-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .animated-text h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .stats-grid, .features-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>

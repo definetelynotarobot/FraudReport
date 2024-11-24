@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <div class="search-area">
-      <h2>📍Select a City</h2>
+      <h2 class="section-title">
+        <span class="emoji">📍</span>Select a City
+      </h2>
       <select v-model="selectedCity" class="custom-select">
         <option disabled value="">Please select one</option>
         <option v-for="city in cities" :key="city" :value="city">
@@ -11,33 +13,71 @@
       <button @click="fetchFraudBehaviors" :disabled="!selectedCity" class="custom-button">
         View Potential Scams
       </button>
-      <p v-if="!selectedCity && buttonClicked">Please select a city before proceeding.</p>
-
+      <p v-if="!selectedCity && buttonClicked" class="error-message">
+        Please select a city before proceeding.
+      </p>
     </div>
 
-    <div v-if="fraudBehaviors.length > 0" class="scam-cards">
-      <div class="prevention-card" v-if="fraudBehaviors.length > 0">
-        <div class="prevent-container">
-          <i class="fa-solid fa-triangle-exclamation"></i>
-          <p class="avoid-direct">If you want to get info/tips about how to avoid these scams please refer to our <a href="/avoid">Avoid/Prevention</a> page</p>
-        </div>
-      </div>
-      <div class="scam-card-container" v-for="behavior in fraudBehaviors" :key="behavior.id">
-        <div class="card-wrapper">
+    <!-- Modern cards for popular scams -->
+    <div v-if="!selectedCity" class="popular-scams">
+      <h3 class="section-subtitle">Most Common Scams in Popular Cities</h3>
+      <div class="scam-grid">
+        <div v-for="(scam, index) in popularScams" 
+             :key="index" 
+             class="scam-card-wrapper">
           <div class="scam-card">
-            <div class="icon">
-              <i class="fas fa-mask" aria-hidden="true"></i>
+            <div class="card-header">
+              <div class="city-badge">
+                <i class="fas fa-map-marker-alt"></i>
+                {{ scam.city }}
+              </div>
+              <div class="scam-type">{{ scam.title }}</div>
             </div>
-            <div class="scam-card-content">
-              <h4>{{ behavior.title }}</h4>
-              <p>{{ behavior.description }}</p>
+            <div class="card-content">
+              <p>{{ scam.description }}</p>
+            </div>
+            <div class="card-footer">
+              <div class="source">
+                <i class="fas fa-shield-alt"></i>
+                <span>{{ scam.reportedBy }}</span>
+              </div>
+              <div class="severity" :class="scam.severityLevel">
+                {{ scam.severity }}
+              </div>
             </div>
           </div>
-          <div class="reported-by-card">
-            <div class="icon">
-              <i class="fas fa-shield-alt" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dynamic scam cards -->
+    <div v-if="fraudBehaviors.length > 0" class="scam-cards">
+      <div class="prevention-banner">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <p class="prevention-text">
+          Get prevention tips on our 
+          <a href="/avoid" class="prevention-link">Avoid/Prevention</a> page
+        </p>
+      </div>
+      
+      <div class="scam-grid">
+        <div v-for="behavior in fraudBehaviors" 
+             :key="behavior.id" 
+             class="scam-card-wrapper">
+          <div class="scam-card">
+            <div class="card-header">
+              
+              <div class="scam-type"><i class="fa-solid fa-person-circle-question"></i> {{ behavior.title }}</div>
             </div>
-            <p><strong>Reported by:</strong> {{ behavior.reportedBy }}</p>
+            <div class="card-content">
+              <p>{{ behavior.description }}</p>
+            </div>
+            <div class="card-footer">
+              <div class="source">
+                <i class="fas fa-shield-alt"></i>
+                <span>{{ behavior.reportedBy }}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -55,6 +95,32 @@ export default {
       cities: [],
       fraudBehaviors: [],
       buttonClicked: false,
+      popularScams: [
+        {
+          city: 'Istanbul',
+          title: 'Taxi Overcharge',
+          description: 'Some taxi drivers may overcharge tourists by taking longer routes or by claiming higher rates.',
+          reportedBy: 'Tourist reports',
+          severity: 'Medium Risk',
+          severityLevel: 'medium'
+        },
+        {
+          city: 'Paris',
+          title: 'Bracelet Scam',
+          description: 'Scammers place a bracelet on tourists and then demand payment for it, sometimes becoming aggressive.',
+          reportedBy: 'Tourist reports',
+          severity: 'High Risk',
+          severityLevel: 'high'
+        },
+        {
+          city: 'Barcelona',
+          title: 'Pickpocketing',
+          description: 'Pickpockets target tourists, especially in crowded areas like La Rambla and public transport.',
+          reportedBy: 'Local authorities',
+          severity: 'High Risk',
+          severityLevel: 'high'
+        }
+      ]
     };
   },
   watch: {
@@ -135,170 +201,240 @@ export default {
 };
 </script>
 
-<style>
-/* Center everything in the container */
+<style scoped>
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
 .search-area {
   text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.emoji {
+  font-size: 1.75rem;
+}
+
+.section-subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .custom-select {
   width: 100%;
-  max-width: 300px;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  background-color: #f9f9f9;
-  appearance: none;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  transition: border 0.3s ease;
+  max-width: 400px;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
 .custom-select:focus {
-  border-color: #007bff;
   outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 .custom-button {
-  padding: 10px 20px;
-  border-radius: 5px;
-  background-color: #007bff;
+  padding: 0.75rem 1.5rem;
+  background-color: #3b82f6;
   color: white;
   border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  font-size: 16px;
-  font-family: "Montserrat";
-  font-weight: 400;
-  transition: background-color 0.3s ease;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.25);
+  transition: all 0.3s ease;
 }
+@media (min-width: 768px) {
 
-.custom-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
+  
+  .custom-button {
+    margin-left:10px;
+  }
 }
 
 .custom-button:hover:not(:disabled) {
-  background-color: #0056b3;
+  background-color: #2563eb;
+  transform: translateY(-1px);
 }
 
-.scam-cards {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.custom-button:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
 }
 
-.scam-card-container {
-  margin: 15px 0;
-  width: 80%;
+.error-message {
+  color: #ef4444;
+  margin-top: 0.5rem;
 }
 
-.card-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+.scam-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
-.scam-card, .reported-by-card {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  box-sizing: border-box;
+.scam-card-wrapper {
+  transition: transform 0.3s ease;
+}
+
+.scam-card-wrapper:hover {
+  transform: translateY(-8px);
 }
 
 .scam-card {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  margin-bottom: 10px;
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
 }
-.prevention-card {
-  background-color: #fff; /* White background for contrast */
-  border: 1px solid #bd2c08; /* Border color for attention */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  padding: 10px; /* Padding inside the card */
-  margin: 20px; /* Margin outside the card */
-  display: flex; /* Flexbox for layout */
-  align-items: center; /* Center items vertically */
-  width:80%;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
-  i{
-    color:rgb(211, 60, 14);
-    margin-right:10px;
-    font-size:2em;
-  }
-  a{
-    text-decoration: none;
-    font-weight:500;
-    color:#04b104;
-  }
+
+.card-header {
+  padding: 1.5rem;
+  background: linear-gradient(to right, #f0f7ff, #f0f4ff);
 }
-.prevent-container{
-  display:flex;
+
+.city-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  background-color: #dbeafe;
+  color: #1e40af;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.city-badge i {
+  margin-right: 0.25rem;
+  color: #3b82f6;
+}
+
+.scam-type {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-content p {
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.card-footer {
+  padding: 1rem 1.5rem;
+  background-color: #f8fafc;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-.prevention-card:hover {
-  transform: translateY(-2px); /* Lift effect on hover */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
-}
-.avoid-direct {
-  font-size: 16px; /* Font size for the text */
-  color: #333; /* Text color */
-  margin: 0; /* Remove default margin */
-}
-
-.avoid-link {
-  color: #007bff; /* Link color */
-  text-decoration: underline; /* Underline link */
-}
-
-.avoid-link:hover {
-  text-decoration: none; /* Remove underline on hover */
-}
-
-
-.icon {
-  margin-right: 10px;
-  font-size: 24px;
-}
-
-.scam-card-content {
-  flex-grow: 1;
-}
-
-h4 {
-  margin: 0 0 5px;
-}
-
-.reported-by-card {
-  font-family:"Montserrat";
-  font-weight: 500;
-  padding: 10px;
-  background-color: #f4f4f9;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+.source {
   display: flex;
   align-items: center;
-  p{
-    margin-bottom:0;
-  }
+  font-size: 0.875rem;
+  color: #64748b;
 }
 
-.reported-by-card i {
-  color: #04b104;
+.source i {
+  color: #22c55e;
+  margin-right: 0.5rem;
+}
+
+.severity {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.severity.high {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.severity.medium {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.severity.low {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.prevention-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  background-color: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.prevention-banner i {
+  font-size: 1.5rem;
+  color: #f97316;
+}
+
+.prevention-text {
+  font-size: 1.125rem;
+  color: #1f2937;
+  margin: 0;
+}
+
+.prevention-link {
+  color: #16a34a;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(22, 163, 74, 0.3);
+  transition: all 0.3s ease;
+}
+
+.prevention-link:hover {
+  color: #15803d;
+}
+
+@media (max-width: 768px) {
+  .scam-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .custom-select {
+    max-width: 100%;
+  }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="blog-container">
     <main class="main-content">
-      <!-- Hero Section -->
+      <!-- Hero Section 
       <section v-if="activeSection === 'home'" class="hero">
         <h2>Stay Safe While Exploring the World</h2>
         <p class="hero-text">
@@ -11,7 +11,7 @@
         <button @click="activeSection = 'articles'" class="cta-button">
           Read Latest Stories
         </button>
-      </section>
+      </section>-->
 
       <!-- Articles Section -->
       <section v-if="activeSection === 'articles'" class="articles">
@@ -39,56 +39,66 @@
             v-for="post in filteredPosts" 
             :key="post.id"
             class="post"
-            :class="{ expanded: activePost === post.id }"
+            :class="{ 
+              'expanded': activePost === post.id, 
+              'affiliate-banner': post.type === 'affiliate-banner' 
+            }"
             @click="togglePost(post.id)"
           >
-            <div class="post-header">
-              <div class="post-meta">
-                <h3>{{ post.title }}</h3>
-                <div class="tags">
-                  <span v-for="tag in post.tags" :key="tag" class="tag">
-                    {{ tag }}
-                  </span>
-                </div>
-              </div>
-              <span class="post-date">{{ post.date }}</span>
-            </div>
-
-            <Transition name="fade">
-              <div v-if="activePost === post.id" class="post-content">
-                <p v-for="(paragraph, index) in post.content" 
-                   :key="index"
-                   class="post-paragraph"
-                >
-                  {{ paragraph }}
-                </p>
-                <div v-if="post.tips" class="tips-section">
-                  <h4>Key Tips:</h4>
-                  <ul>
-                    <li v-for="(tip, index) in post.tips" 
-                        :key="index"
-                        class="tip-item"
-                    >
-                      {{ tip }}
-                    </li>
-                  </ul>
-                </div>
-                <div class="post-footer">
-                  <div class="engagement">
-
-                    <button @click.stop="sharePost(post.id)"
-                            class="engagement-button"
-                    >
-                      Share
-                    </button>
+            <!-- Regular post rendering -->
+            <template v-if="post.type !== 'affiliate-banner'">
+              <div class="post-header">
+                <div class="post-meta">
+                  <h3>{{ post.title }}</h3>
+                  <div class="tags">
+                    <span v-for="tag in post.tags" :key="tag" class="tag">
+                      {{ tag }}
+                    </span>
                   </div>
                 </div>
+                <span class="post-date">{{ post.date }}</span>
               </div>
-            </Transition>
+
+              <Transition name="fade">
+                <div v-if="activePost === post.id" class="post-content">
+                  <p v-for="(paragraph, index) in post.content" 
+                     :key="index"
+                     class="post-paragraph"
+                  >
+                    {{ paragraph }}
+                  </p>
+                  <div v-if="post.tips" class="tips-section">
+                    <h4>Key Tips:</h4>
+                    <ul>
+                      <li v-for="(tip, index) in post.tips" 
+                          :key="index"
+                          class="tip-item"
+                      >
+                        {{ tip }}
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="post-footer">
+                    <div class="engagement">
+                      <button @click.stop="sharePost(post.id)"
+                              class="engagement-button"
+                      >
+                        Share
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </Transition>
+            </template>
+
+            <!-- Affiliate banner rendering -->
+            <template v-else>
+              <a class="affiliate-cta-btn" href="https://www.hotels.com/affiliates/tourist_guards/fidelis29">
+              <div v-html="post.content" class="affiliate-content"></div></a>
+            </template>
           </article>
         </TransitionGroup>
       </section>
-
     </main>
 
     <!-- Notification Component -->
@@ -156,6 +166,20 @@ export default {
           ]
         },
         {
+          id: 'affiliate-1',
+          type: 'affiliate-banner',
+          content: `
+            <div class="affiliate-banner">
+              <div class="banner-content">
+                <div class="banner-text">
+                  <h3>🏨 Travel Smarter, Stay Safer: Find Your Perfect Accommodation</h3>
+                  <p>Book with confidence using our verified hotel recommendations. Compare prices, read real traveler reviews, and protect yourself from booking scams.</p>
+                </div>
+              </div>
+            </div>
+          `
+        },
+        {
           id: 3,
           title: '🚕 Transportation Tricks: Avoiding Taxi and Rental Scams',
           date: 'November 1, 2024',
@@ -216,6 +240,20 @@ export default {
           ]
         },
         {
+          id: 'affiliate-2',
+          type: 'affiliate-banner',
+          content: `
+            <div class="affiliate-banner">
+              <div class="banner-content">
+                <div class="banner-text">
+                  <h3>🏨 Travel Smarter, Stay Safer: Find Your Perfect Accommodation</h3>
+                  <p>Book with confidence using our verified hotel recommendations. Compare prices, read real traveler reviews, and protect yourself from booking scams.</p>
+                </div>
+              </div>
+            </div>
+          `
+        },
+        {
           id: 6,
           title: '🛍️ Shopping Scams: From Markets to Luxury Stores',
           date: 'November 15, 2024',
@@ -254,6 +292,20 @@ export default {
             'Download apps only from official stores',
             'Avoid conducting sensitive transactions on public networks'
           ]
+        },
+        {
+          id: 'affiliate-3',
+          type: 'affiliate-banner',
+          content: `
+            <div class="affiliate-banner">
+              <div class="banner-content">
+                <div class="banner-text">
+                  <h3>🏨 Travel Smarter, Stay Safer: Find Your Perfect Accommodation</h3>
+                  <p>Book with confidence using our verified hotel recommendations. Compare prices, read real traveler reviews, and protect yourself from booking scams.</p>
+                </div>
+              </div>
+            </div>
+          `
         }
       ]
     }
@@ -262,6 +314,7 @@ export default {
     filteredPosts() {
       if (this.selectedTags.length === 0) return this.posts;
       return this.posts.filter(post => 
+        post.type === 'affiliate-banner' || 
         post.tags.some(tag => this.selectedTags.includes(tag))
       );
     }
@@ -269,6 +322,10 @@ export default {
   methods: {
     
     togglePost(postId) {
+      // Completely skip toggling for affiliate banners
+      const post = this.posts.find(p => p.id === postId);
+      if (post && post.type === 'affiliate-banner') return;
+      
       this.activePost = this.activePost === postId ? null : postId;
     },
     toggleFilter(tag) {
@@ -331,11 +388,45 @@ export default {
 </script>
 
 <style scoped>
+
+.affiliate-content{
+    background: linear-gradient(to right, #1e3a8a, #2563eb);
+    color:white;
+    border-radius: 10px;
+    padding:10px;
+}
+
+article a{
+  text-decoration: none;
+  background-color :white;
+}
+
+.banner-text {
+  flex-grow: 1;
+}
+
+.banner-text h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.post.affiliate-banner {
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 2rem 0;
+  cursor: default;
+}
+
+.affiliate-content {
+  width: 100%;
+}
+
 .safety-header h1{
   color:#2563eb;
   font-weight: bold;
-  
 }
+
 .disclaimer {
   color: black;
   font-size: 0.9rem;
@@ -353,6 +444,7 @@ export default {
     margin-right:10px;
   }
 }
+
 .blog-container {
   min-height: 100vh;
   background-color: #f8fafc;
@@ -399,22 +491,6 @@ export default {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 1rem;
-}
-
-.hero {
-  text-align: center;
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  border-radius: 1rem;
-  color: white;
-  margin-bottom: 2rem;
-}
-
-.hero-text {
-  max-width: 600px;
-  margin: 1rem auto;
-  font-size: 1.25rem;
-  line-height: 1.75;
 }
 
 .filters {
@@ -493,19 +569,6 @@ export default {
   margin-top: 1rem;
 }
 
-.tip-item {
-  margin: 0.5rem 0;
-  padding-left: 1.5rem;
-  position: relative;
-}
-/*
-.tip-item::before {
-  content: "•";
-  position: absolute;
-  left: 0.5rem;
-  color: #2563eb;
-}*/
-
 .post-footer {
   margin-top: 1.5rem;
   padding-top: 1rem;
@@ -536,12 +599,6 @@ export default {
   flex-wrap: wrap;
   margin-top: 0.5rem;
 }
-.tag-selector {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  margin-top: 0.5rem;
-}
 
 .tag-button {
   padding: 0.5rem 1rem;
@@ -557,7 +614,6 @@ export default {
   color: white;
   border-color: #2563eb;
 }
-
 
 .notification {
   position: fixed;
@@ -585,7 +641,6 @@ export default {
   color: white;
 }
 
-/* Transitions */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;
@@ -622,7 +677,6 @@ export default {
   transform: translateY(30px);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .nav-content {
     flex-direction: column;
@@ -634,10 +688,10 @@ export default {
     justify-content: center;
     flex-wrap: wrap;
   }
-
+  /*
   .hero {
     padding: 2rem 1rem;
-  }
+  }*/
 
   .post-header {
     flex-direction: column;
@@ -700,31 +754,12 @@ export default {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #94a3b8;
-  border-radius: 4px;
+  background: #2563eb;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: #1d4ed8;
 }
 
-/* Print Styles */
-@media print {
-  .navbar,
-  .filters,
-  .engagement,
-  .notification {
-    display: none;
-  }
-
-  .post {
-    break-inside: avoid;
-    box-shadow: none;
-  }
-
-  .main-content {
-    margin: 0;
-    padding: 0;
-  }
-}
 </style>

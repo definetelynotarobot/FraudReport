@@ -411,9 +411,9 @@ article a{
 }
 
 .post.affiliate-banner {
-  background: none;
+  background: linear-gradient(to right, #1e3a8a, #2563eb);
   box-shadow: none;
-  padding: 0;
+  padding: 10px;
   margin: 2rem 0;
   cursor: default;
 }

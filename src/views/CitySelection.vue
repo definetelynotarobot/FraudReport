@@ -94,7 +94,7 @@
         </div>
         <h3 class="affiliate-title"><i class="fas fa-plane-departure"></i> End Your Worries, Begin Your Journey</h3>
         <p class="affiliate-description">You got the info and confidence you needed. 
-            Don't let scams ruin your travel plans. Book safe and secure with our trusted providers.</p>
+            Don't let scammers ruin your travel plans. Book safe and secure with our trusted providers.</p>
         <a href="https://expedia.com/affiliates/tourist_guards/fidelis30" target="_blank" class="affiliate-button">
             <i class="fas fa-arrow-right"></i> Start Now
         </a>

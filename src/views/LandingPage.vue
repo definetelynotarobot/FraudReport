@@ -87,8 +87,8 @@ export default {
   data() {
     return {
       stats: [
-        { icon: '🌍', value: '50+', label: 'Cities Covered' },
-        { icon: '⚠️', value: '100+', label: 'Scams Documented' },
+        { icon: '🌍', value: '100+', label: 'Cities Covered' },
+        { icon: '⚠️', value: '300+', label: 'Scams Documented' },
         { icon: '👥', value: '5K+', label: 'Travelers Protected' },
         { icon: '📱', value: '24/7', label: 'Available Support' }
       ],

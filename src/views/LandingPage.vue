@@ -87,8 +87,8 @@ export default {
   data() {
     return {
       stats: [
-        { icon: '🌍', value: '50+', label: 'Cities Covered' },
-        { icon: '⚠️', value: '100+', label: 'Scams Documented' },
+        { icon: '🌍', value: '100+', label: 'Cities Covered' },
+        { icon: '⚠️', value: '300+', label: 'Scams Documented' },
         { icon: '👥', value: '5K+', label: 'Travelers Protected' },
         { icon: '📱', value: '24/7', label: 'Available Support' }
       ],
@@ -115,9 +115,42 @@ export default {
         }
       ]
     }
+  },
+  metaInfo: {
+    title: "Tourist Guards - Stay Safe, Travel Smarter",
+    meta: [
+      {
+        name: "description",
+        content: "Discover potential travel scams across 100+ cities worldwide. Stay informed, protect yourself, and travel smarter with Tourist Guards.",
+      },
+      {
+        name: "keywords",
+        content: "travel scams, tourist safety, travel tips, city scams, safe travel",
+      },
+      {
+        name: "robots",
+        content: "index, follow",
+      },
+    ],
+  },
+  mounted() {
+    const ldJsonScript = document.createElement('script');
+    ldJsonScript.type = 'application/ld+json';
+    ldJsonScript.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Tourist Guards - Travel Smarter",
+      "description": "Discover and avoid travel scams with Tourist Guards. Covering 100+ cities worldwide.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tourist Guards"
+      }
+    });
+    document.head.appendChild(ldJsonScript);
   }
 }
 </script>
+
 
 <style scoped>
 .landing-container {

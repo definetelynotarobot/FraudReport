@@ -132,21 +132,25 @@ export default {
         content: "index, follow",
       },
     ],
+  },
+  mounted() {
+    const ldJsonScript = document.createElement('script');
+    ldJsonScript.type = 'application/ld+json';
+    ldJsonScript.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Tourist Guards - Travel Smarter",
+      "description": "Discover and avoid travel scams with Tourist Guards. Covering 100+ cities worldwide.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tourist Guards"
+      }
+    });
+    document.head.appendChild(ldJsonScript);
   }
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Tourist Guards - Travel Smarter",
-  "description": "Discover and avoid travel scams with Tourist Guards. Covering 100+ cities worldwide.",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Tourist Guards"
-  }
-}
-</script>
+
 
 <style scoped>
 .landing-container {

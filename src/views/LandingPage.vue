@@ -115,6 +115,35 @@ export default {
         }
       ]
     }
+  },
+  metaInfo: {
+    title: "Tourist Guards - Stay Safe, Travel Smarter",
+    meta: [
+      {
+        name: "description",
+        content: "Discover potential travel scams across 100+ cities worldwide. Stay informed, protect yourself, and travel smarter with Tourist Guards.",
+      },
+      {
+        name: "keywords",
+        content: "travel scams, tourist safety, travel tips, city scams, safe travel",
+      },
+      {
+        name: "robots",
+        content: "index, follow",
+      },
+    ],
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Tourist Guards - Travel Smarter",
+  "description": "Discover and avoid travel scams with Tourist Guards. Covering 100+ cities worldwide.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tourist Guards"
   }
 }
 </script>

@@ -306,7 +306,64 @@ export default {
               </div>
             </div>
           `
-        }
+        },
+        {
+  id: 8,
+  title: '🔎 How to Avoid Travel Scams: Tips for Safer Journeys',
+  date: 'December 1, 2024',
+  tags: ['Travel Scams', 'Safety'],
+  likes: 20,
+  content: [
+    'Travel scams are a serious concern for tourists worldwide. Whether you are a seasoned traveler or a first-time visitor, being aware of common scams can save you time, money, and stress.',
+    'One of the most common scams involves fake tour guides or taxi drivers who offer services at inflated prices. Another frequent scam includes overcharging at restaurants or stores targeting tourists.',
+    'Knowing how to avoid travel scams involves staying informed and cautious in unfamiliar environments.'
+  ],
+  tips: [
+    'Always research scams specific to your destination before traveling',
+    'Avoid deals that seem "too good to be true"',
+    'Only use licensed services for taxis and tours',
+    'Keep your belongings close and avoid distraction scams',
+    'Trust your instincts—if something feels off, walk away'
+  ]
+},
+{
+  id: 9,
+  title: '🌍 The Top 10 Travel Scams to Watch Out for in 2024',
+  date: 'December 2, 2024',
+  tags: ['Travel Scams', 'Top Scams'],
+  likes: 22,
+  content: [
+    'Travel scams are continuously evolving, and it’s important to stay aware of the most common ones that affect tourists worldwide.',
+    'Some of the top scams to look out for in 2024 include fake hotel bookings, street scams where tourists are asked for donations or falsely accused of crimes, and tech-related scams like phishing emails disguised as travel confirmations.',
+    'Understanding these scams and how to recognize them can help travelers avoid falling victim to fraudulent schemes.'
+  ],
+  tips: [
+    'Check the authenticity of all bookings before confirming payments',
+    'Be cautious of unsolicited requests from strangers on the street',
+    'Ensure your devices are secure and beware of phishing emails',
+    'Stay alert to local scam trends and share information with fellow travelers',
+    'Use reputable travel companies for tours and accommodations'
+  ]
+},
+{
+  id: 10,
+  title: '🚨 Travel Scams You Should Watch Out for in Southeast Asia',
+  date: 'December 3, 2024',
+  tags: ['Travel Scams', 'Southeast Asia'],
+  likes: 25,
+  content: [
+    'Southeast Asia is a popular destination for travelers, but like many tourist hotspots, it’s also rife with scams designed to target unsuspecting visitors.',
+    'One common scam is the “tuk-tuk tour scam,” where tourists are convinced to take an overpriced ride around the city. Another scam involves fake temples or guided tours with inflated entry fees.',
+    'Traveling smart means staying informed and prepared for these and other local scams.'
+  ],
+  tips: [
+    'Always agree on a fare before getting into a tuk-tuk or taxi',
+    'Research local attractions to avoid counterfeit tours',
+    'Avoid handing over large sums of cash or valuables to unknown individuals',
+    'Use well-established travel agencies and avoid impromptu deals',
+    'Keep a copy of important documents in a secure place'
+  ]
+}
       ]
     }
   },

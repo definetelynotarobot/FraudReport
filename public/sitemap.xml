@@ -1,7 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://touristguards.com/</loc>
-    <priority>1</priority>
+    <priority>1.0</priority>
+    <lastmod>2024-12-10</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://touristguards.com/Blog</loc>
+    <priority>0.8</priority>
+    <lastmod>2024-12-10</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://touristguards.com/scams</loc>
+    <priority>0.9</priority>
+    <lastmod>2024-12-10</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://touristguards.com/Avoid</loc>
+    <priority>0.7</priority>
+    <lastmod>2024-12-10</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://touristguards.com/Share-Experience</loc>
+    <priority>0.6</priority>
+    <lastmod>2024-12-10</lastmod>
+    <changefreq>monthly</changefreq>
   </url>
 </urlset>

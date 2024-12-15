@@ -1,27 +1,16 @@
 <template>
   <div class="blog-container">
     <main class="main-content">
-      <!-- Hero Section 
-      <section v-if="activeSection === 'home'" class="hero">
-        <h2>Stay Safe While Exploring the World</h2>
-        <p class="hero-text">
-          Join our community of informed travelers sharing experiences and tips 
-          to prevent tourist scams worldwide.
-        </p>
-        <button @click="activeSection = 'articles'" class="cta-button">
-          Read Latest Stories
-        </button>
-      </section>-->
-
       <!-- Articles Section -->
       <section v-if="activeSection === 'articles'" class="articles">
         <header class="safety-header">
-      <h1>Stay Safe While Exploring the World</h1>
-      <p class="disclaimer">
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        <span>This information is provided for general educational purposes only and should not be considered as legal or security advice. Always consult local authorities or legal professionals for specific situations.</span>
-      </p>
-    </header>
+          <h1>Stay Safe While Exploring the World</h1>
+          <p class="disclaimer">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span>This information is provided for general educational purposes only and should not be considered as legal or security advice. Always consult local authorities or legal professionals for specific situations.</span>
+          </p>
+        </header>
+        
         <div class="filters">
           <button 
             v-for="tag in tags" 
@@ -49,7 +38,7 @@
             <template v-if="post.type !== 'affiliate-banner'">
               <div class="post-header">
                 <div class="post-meta">
-                  <h3>{{ post.title }}</h3>
+                  <h2>{{ post.title }}</h2>
                   <div class="tags">
                     <span v-for="tag in post.tags" :key="tag" class="tag">
                       {{ tag }}
@@ -94,7 +83,8 @@
             <!-- Affiliate banner rendering -->
             <template v-else>
               <a class="affiliate-cta-btn" href="https://www.hotels.com/affiliates/tourist_guards/fidelis29">
-              <div v-html="post.content" class="affiliate-content"></div></a>
+                <div v-html="post.content" class="affiliate-content"></div>
+              </a>
             </template>
           </article>
         </TransitionGroup>
@@ -110,9 +100,12 @@
   </div>
 </template>
 
+
 <script>
+import blogs from '@/data/blogs.json'; // Import the blog post data from the JSON file
+
 export default {
-  name: 'ScamAwarenessBlog',
+  name: 'ScamBlog',
   data() {
     return {
       activeSection: 'articles',
@@ -126,245 +119,7 @@ export default {
         location: '',
         tags: []
       },
-      posts: [
-        {
-          id: 1,
-          title: '🌐 Digital Dangers: Emerging Travel Scams in the Internet Age',
-          date: 'October 22, 2024',
-          tags: ['Digital'],
-          likes: 45,
-          content: [
-            'As technology advances, so do the methods of scammers targeting travelers. Digital travel scams have become increasingly sophisticated, catching even the most cautious tourists off guard.',
-            'One emerging trend is fake booking websites that look incredibly legitimate. These sites mirror authentic travel platforms, offering seemingly unbeatable deals on accommodations and flights.',
-            'Another growing concern is social media impersonation scams. Scammers create detailed profiles mimicking travel agencies, tour operators, and even individual travelers.'
-          ],
-          tips: [
-            'Always verify website authenticity',
-            'Use secure, reputable booking platforms',
-            'Be skeptical of deals that seem "too good to be true"',
-            'Check website security certificates',
-            'Use credit cards with fraud protection'
-          ]
-        },
-        {
-          id: 2,
-          title: '🌏 Cultural Intelligence: Your Best Scam Defense',
-          date: 'October 22, 2024',
-          tags: ['Cultural', 'Street'],
-          likes: 38,
-          content: [
-            "Understanding local customs and cultural nuances isn't just about respect—it's also a powerful tool in preventing travel scams.",
-            "Many fraudulent schemes exploit tourists' lack of local knowledge and cultural context.",
-            "Language barriers often make travelers vulnerable. Scammers may use complex local dialects or rapid speech to confuse and manipulate."
-          ],
-          tips: [
-            'Research local customs before traveling',
-            'Learn basic local language phrases',
-            'Observe how locals interact',
-            'Trust your instincts',
-            'Stay confident and composed'
-          ]
-        },
-        {
-          id: 'affiliate-1',
-          type: 'affiliate-banner',
-          content: `
-            <div class="affiliate-banner">
-              <div class="banner-content">
-                <div class="banner-text">
-                  <h3>🏨 Travel Smarter, Stay Safer: Find Your Perfect Accommodation</h3>
-                  <p>Book with confidence using our verified hotel recommendations. Compare prices, read real traveler reviews, and protect yourself from booking scams.</p>
-                </div>
-              </div>
-            </div>
-          `
-        },
-        {
-          id: 3,
-          title: '🚕 Transportation Tricks: Avoiding Taxi and Rental Scams',
-          date: 'November 1, 2024',
-          tags: ['Transportation'],
-          likes: 62,
-          content: [
-            "Transportation scams are among the most common pitfalls for travelers, often occurring when we're most vulnerable – just after arriving in a new destination.",
-            "Unlicensed taxis, rigged meters, and long-hauling (taking unnecessarily long routes) are classic schemes that continue to trap unwary tourists.",
-            "Rental car scams have also evolved, with some companies charging for pre-existing damage or adding hidden fees that significantly inflate the final bill.",
-            "The rise of ride-sharing hasn't eliminated these risks – some scammers now pose as legitimate drivers on popular platforms, using fake apps and profiles."
-          ],
-          tips: [
-            'Only use official taxi stands at airports and stations',
-            'Verify ride-share driver and car details before entering',
-            'Take photos of rental cars before and after use',
-            'Research typical taxi rates for common routes',
-            'Always ask for a meter or agree on a price beforehand'
-          ]
-        },
-        {
-          id: 4,
-          title: '🏨 Accommodation Alert: Hotel and Rental Property Scams',
-          date: 'November 5, 2024',
-          tags: ['Accommodation', 'Digital'],
-          likes: 51,
-          content: [
-            'The rise of vacation rental platforms has created new opportunities for scammers to target travelers seeking authentic local experiences.',
-            'Fake listings with stolen photos and too-good-to-be-true prices are increasingly sophisticated, often including detailed descriptions and fake reviews.',
-            'Some scammers now create duplicate listings of legitimate properties, intercepting communications and payments between real hosts and guests.',
-            "Even traditional hotels aren't immune, with some properties hiding resort fees, charging for 'complimentary' services, or misrepresenting their locations and amenities."
-          ],
-          tips: [
-            'Book through verified platforms with buyer protection',
-            'Be wary of hosts pushing off-platform communication',
-            'Verify property addresses through multiple sources',
-            'Read recent reviews carefully, especially negative ones',
-            'Screenshot all listings and communication for reference'
-          ]
-        },
-        {
-          id: 5,
-          title: '🍽️ Food and Restaurant Scams: Dining with Caution',
-          date: 'November 10, 2024',
-          tags: ['Food', 'Cultural'],
-          likes: 43,
-          content: [
-            'Food-related scams can not only ruin your travel budget but also potentially affect your health and safety.',
-            'Tourist-trap restaurants often employ various tactics: having staff lure passersby, hiding prices, adding automatic "tourist charges," or serving different portions to locals and tourists.',
-            'Street food vendors might use rigged scales or swap premium ingredients for cheaper alternatives after showing you the original product.',
-            'Some establishments even run elaborate schemes where "friendly locals" recommend their restaurant, leading to grossly inflated bills.'
-          ],
-          tips: [
-            'Research restaurants in advance when possible',
-            'Always check menu prices before ordering',
-            'Ask for itemized bills and verify charges',
-            'Be wary of overly pushy restaurant touts',
-            'Observe where locals eat and follow their lead'
-          ]
-        },
-        {
-          id: 'affiliate-2',
-          type: 'affiliate-banner',
-          content: `
-            <div class="affiliate-banner">
-              <div class="banner-content">
-                <div class="banner-text">
-                  <h3>🏨 Travel Smarter, Stay Safer: Find Your Perfect Accommodation</h3>
-                  <p>Book with confidence using our verified hotel recommendations. Compare prices, read real traveler reviews, and protect yourself from booking scams.</p>
-                </div>
-              </div>
-            </div>
-          `
-        },
-        {
-          id: 6,
-          title: '🛍️ Shopping Scams: From Markets to Luxury Stores',
-          date: 'November 15, 2024',
-          tags: ['Shopping', 'Street'],
-          likes: 35,
-          content: [
-            'Shopping scams remain one of the most prevalent tourist traps, evolving to target both budget-conscious travelers and luxury shoppers.',
-            'Counterfeit goods are becoming increasingly sophisticated, with some fake markets even providing "authentic" receipts and fake certificates of authenticity.',
-            'The ancient art of bargaining has been weaponized in some tourist areas, with vendors using psychological tactics and fake "wholesale" prices to create artificial anchors.',
-            'Even legitimate-looking luxury stores in tourist areas sometimes sell authentic-looking counterfeits, especially in areas known for shopping tourism.'
-          ],
-          tips: [
-            'Research typical prices for desired items beforehand',
-            'Be extremely cautious with street vendor electronics',
-            'Learn basic bargaining phrases in local language',
-            'Keep receipts and credit card slips for all purchases',
-            'Verify luxury goods at official brand stores when possible'
-          ]
-        },
-        {
-          id: 7,
-          title: '📱 Tech-Savvy Travel: Protecting Your Digital Life Abroad',
-          date: 'November 20, 2024',
-          tags: ['Digital', 'Cultural'],
-          likes: 55,
-          content: [
-            'As travelers become more dependent on technology, cybercriminals are developing increasingly sophisticated methods to exploit digital vulnerabilities.',
-            'Public Wi-Fi networks in tourist areas are often compromised, with hackers setting up legitimate-looking networks to intercept personal data.',
-            'Digital pickpockets now use RFID scanners to steal credit card information from unsuspecting tourists in crowded areas.',
-            'Some scammers have even started targeting travelers through popular travel apps and social media platforms, using location data to make their approaches more convincing.'
-          ],
-          tips: [
-            'Use a reliable VPN when connecting to public Wi-Fi',
-            'Enable two-factor authentication on all accounts',
-            'Use RFID-blocking wallets for credit cards',
-            'Download apps only from official stores',
-            'Avoid conducting sensitive transactions on public networks'
-          ]
-        },
-        {
-          id: 'affiliate-3',
-          type: 'affiliate-banner',
-          content: `
-            <div class="affiliate-banner">
-              <div class="banner-content">
-                <div class="banner-text">
-                  <h3>🏨 Travel Smarter, Stay Safer: Find Your Perfect Accommodation</h3>
-                  <p>Book with confidence using our verified hotel recommendations. Compare prices, read real traveler reviews, and protect yourself from booking scams.</p>
-                </div>
-              </div>
-            </div>
-          `
-        },
-        {
-  id: 8,
-  title: '🔎 How to Avoid Travel Scams: Tips for Safer Journeys',
-  date: 'December 1, 2024',
-  tags: ['Travel Scams', 'Safety'],
-  likes: 20,
-  content: [
-    'Travel scams are a serious concern for tourists worldwide. Whether you are a seasoned traveler or a first-time visitor, being aware of common scams can save you time, money, and stress.',
-    'One of the most common scams involves fake tour guides or taxi drivers who offer services at inflated prices. Another frequent scam includes overcharging at restaurants or stores targeting tourists.',
-    'Knowing how to avoid travel scams involves staying informed and cautious in unfamiliar environments.'
-  ],
-  tips: [
-    'Always research scams specific to your destination before traveling',
-    'Avoid deals that seem "too good to be true"',
-    'Only use licensed services for taxis and tours',
-    'Keep your belongings close and avoid distraction scams',
-    'Trust your instincts—if something feels off, walk away'
-  ]
-},
-{
-  id: 9,
-  title: '🌍 The Top 10 Travel Scams to Watch Out for in 2024',
-  date: 'December 2, 2024',
-  tags: ['Travel Scams', 'Top Scams'],
-  likes: 22,
-  content: [
-    'Travel scams are continuously evolving, and it’s important to stay aware of the most common ones that affect tourists worldwide.',
-    'Some of the top scams to look out for in 2024 include fake hotel bookings, street scams where tourists are asked for donations or falsely accused of crimes, and tech-related scams like phishing emails disguised as travel confirmations.',
-    'Understanding these scams and how to recognize them can help travelers avoid falling victim to fraudulent schemes.'
-  ],
-  tips: [
-    'Check the authenticity of all bookings before confirming payments',
-    'Be cautious of unsolicited requests from strangers on the street',
-    'Ensure your devices are secure and beware of phishing emails',
-    'Stay alert to local scam trends and share information with fellow travelers',
-    'Use reputable travel companies for tours and accommodations'
-  ]
-},
-{
-  id: 10,
-  title: '🚨 Travel Scams You Should Watch Out for in Southeast Asia',
-  date: 'December 3, 2024',
-  tags: ['Travel Scams', 'Southeast Asia'],
-  likes: 25,
-  content: [
-    'Southeast Asia is a popular destination for travelers, but like many tourist hotspots, it’s also rife with scams designed to target unsuspecting visitors.',
-    'One common scam is the “tuk-tuk tour scam,” where tourists are convinced to take an overpriced ride around the city. Another scam involves fake temples or guided tours with inflated entry fees.',
-    'Traveling smart means staying informed and prepared for these and other local scams.'
-  ],
-  tips: [
-    'Always agree on a fare before getting into a tuk-tuk or taxi',
-    'Research local attractions to avoid counterfeit tours',
-    'Avoid handing over large sums of cash or valuables to unknown individuals',
-    'Use well-established travel agencies and avoid impromptu deals',
-    'Keep a copy of important documents in a secure place'
-  ]
-}
-      ]
+      posts: blogs, // Use the imported blog post data
     }
   },
   computed: {
@@ -377,7 +132,6 @@ export default {
     }
   },
   methods: {
-    
     togglePost(postId) {
       // Completely skip toggling for affiliate banners
       const post = this.posts.find(p => p.id === postId);
@@ -387,12 +141,11 @@ export default {
     },
     toggleFilter(tag) {
       if (this.selectedTags.includes(tag)) {
-        this.selectedTags = this.selectedTags.filter(t => t !== tag);
+        this.selectedTags = this.selectedTags.filter(selectedTag => selectedTag !== tag);
       } else {
         this.selectedTags.push(tag);
-      }
-    },
-    toggleStoryTag(tag) {
+      } },
+      toggleStoryTag(tag) {
       if (this.newStory.tags.includes(tag)) {
         this.newStory.tags = this.newStory.tags.filter(t => t !== tag);
       } else {
@@ -439,10 +192,12 @@ export default {
           this.showNotification('Unable to copy the post link.', 'error');
         });
     }
-  }
+   
   }
 }
+}
 </script>
+
 
 <style scoped>
 
@@ -462,7 +217,7 @@ article a{
   flex-grow: 1;
 }
 
-.banner-text h3 {
+.banner-text h2 {
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }

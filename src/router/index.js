@@ -6,6 +6,8 @@ import ScamBlog from '@/views/ScamBlog.vue';
 import PrivacyPolicy from '@/views/PrivacyPolicy.vue'; // Adjust the path as necessary
 import AvoidPrevention from '@/views/AvoidPrevention.vue';
 import TermsOfUse from '@/views/TermsOfUse.vue';
+import BlogDetail from '@/views/BlogDetail.vue';
+
 
 const routes = [
   {
@@ -17,6 +19,12 @@ const routes = [
     path: '/Blog',
     name: 'Blog',
     component: ScamBlog,
+  },
+  {
+    path: '/blog/:title',
+    name: 'BlogDetail',
+    component: BlogDetail,
+    props: true,
   },
   {
     path: '/Scams',

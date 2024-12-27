@@ -10,7 +10,7 @@
             <span>This information is provided for general educational purposes only and should not be considered as legal or security advice. Always consult local authorities or legal professionals for specific situations.</span>
           </p>
         </header>
-        
+
         <div class="filters">
           <button 
             v-for="tag in tags" 
@@ -29,14 +29,12 @@
             :key="post.id"
             class="post"
             :class="{ 
-              'expanded': activePost === post.id, 
               'affiliate-banner': post.type === 'affiliate-banner' 
             }"
-            @click="togglePost(post.id)"
           >
             <!-- Regular post rendering -->
             <template v-if="post.type !== 'affiliate-banner'">
-              <div class="post-header">
+              <div class="post-header" @click="navigateToPost(post.title)">
                 <div class="post-meta">
                   <h2>{{ post.title }}</h2>
                   <div class="tags">
@@ -47,37 +45,6 @@
                 </div>
                 <span class="post-date">{{ post.date }}</span>
               </div>
-
-              <Transition name="fade">
-                <div v-if="activePost === post.id" class="post-content">
-                  <p v-for="(paragraph, index) in post.content" 
-                     :key="index"
-                     class="post-paragraph"
-                  >
-                    {{ paragraph }}
-                  </p>
-                  <div v-if="post.tips" class="tips-section">
-                    <h4>Key Tips:</h4>
-                    <ul>
-                      <li v-for="(tip, index) in post.tips" 
-                          :key="index"
-                          class="tip-item"
-                      >
-                        {{ tip }}
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="post-footer">
-                    <div class="engagement">
-                      <button @click.stop="sharePost(post.id)"
-                              class="engagement-button"
-                      >
-                        Share
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </Transition>
             </template>
 
             <!-- Affiliate banner rendering -->
@@ -109,7 +76,6 @@ export default {
   data() {
     return {
       activeSection: 'articles',
-      activePost: null,
       selectedTags: [],
       notification: null,
       tags: ['Digital', 'Cultural', 'Transportation', 'Accommodation', 'Street'],
@@ -120,7 +86,7 @@ export default {
         tags: []
       },
       posts: blogs, // Use the imported blog post data
-    }
+    };
   },
   computed: {
     filteredPosts() {
@@ -132,71 +98,28 @@ export default {
     }
   },
   methods: {
-    togglePost(postId) {
-      // Completely skip toggling for affiliate banners
-      const post = this.posts.find(p => p.id === postId);
-      if (post && post.type === 'affiliate-banner') return;
-      
-      this.activePost = this.activePost === postId ? null : postId;
+    navigateToPost(title) {
+      // Navigate to the blog detail page using Vue Router
+      this.$router.push({ name: 'BlogDetail', params: { title } });
     },
     toggleFilter(tag) {
       if (this.selectedTags.includes(tag)) {
         this.selectedTags = this.selectedTags.filter(selectedTag => selectedTag !== tag);
       } else {
         this.selectedTags.push(tag);
-      } },
-      toggleStoryTag(tag) {
+      }
+    },
+    toggleStoryTag(tag) {
       if (this.newStory.tags.includes(tag)) {
         this.newStory.tags = this.newStory.tags.filter(t => t !== tag);
       } else {
         this.newStory.tags.push(tag);
       }
     },
-    showNotification(message, type = 'info') {
-      this.notification = { message, type };
-      setTimeout(() => {
-        this.notification = null;
-      }, 3000);
-    },
-    sharePost(postId) {
-    const post = this.posts.find(p => p.id === postId);
-    if (!post) {
-      this.showNotification('Post not found.', 'error');
-      return;
-    }
-
-    const shareData = {
-      title: post.title,
-      text: post.content[0], // Use the first paragraph as a preview
-      url: window.location.origin + `/blog`
-    };
-
-    if (navigator.share) {
-      // Use the Web Share API
-      navigator.share(shareData)
-        .then(() => {
-          this.showNotification('Post shared successfully!', 'success');
-        })
-        .catch(err => {
-          console.error('Sharing failed:', err);
-          this.showNotification('Unable to share the post.', 'error');
-        });
-    } else {
-      // Fallback: Copy the URL to clipboard
-      navigator.clipboard.writeText(shareData.url)
-        .then(() => {
-          this.showNotification('Post link copied to clipboard!', 'success');
-        })
-        .catch(err => {
-          console.error('Copying failed:', err);
-          this.showNotification('Unable to copy the post link.', 'error');
-        });
-    }
-   
   }
-}
-}
+};
 </script>
+
 
 
 <style scoped>

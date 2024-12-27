@@ -11,13 +11,11 @@
       },
       {
         "subtitle": "The Friendship Bracelet Scam",
-        "text": "This scam is common near popular tourist spots like the Eiffel Tower or Montmartre. A street vendor approaches you with colorful threads, offering a 'free' bracelet. While you're distracted, they tie it around your wrist and demand payment, often at an inflated price.",
-        "image": "url_to_image_of_friendship_bracelet_scam.jpg"
+        "text": "This scam is common near popular tourist spots like the Eiffel Tower or Montmartre. A street vendor approaches you with colorful threads, offering a 'free' bracelet. While you're distracted, they tie it around your wrist and demand payment, often at an inflated price."
       },
       {
         "subtitle": "Pickpocketing",
-        "text": "Pickpocketing is prevalent in crowded areas like the Louvre, the Eiffel Tower, and the metro. Scammers work in teams, using distractions like bumping into you, spilling something, or asking for directions to steal your valuables.",
-        "image": "url_to_image_of_pickpocketing_scam.jpg"
+        "text": "Pickpocketing is prevalent in crowded areas like the Louvre, the Eiffel Tower, and the metro. Scammers work in teams, using distractions like bumping into you, spilling something, or asking for directions to steal your valuables."
       },
       {
         "subtitle": "Fake Tickets to Attractions",
@@ -240,20 +238,46 @@
       "title": "🚕 Transportation Tricks: Avoiding Taxi and Rental Scams",
       "date": "November 1, 2024",
       "tags": ["Transportation"],
-      "likes": 62,
       "content": [
-        "Transportation scams are among the most common pitfalls for travelers, often occurring when we're most vulnerable – just after arriving in a new destination.",
-        "Unlicensed taxis, rigged meters, and long-hauling (taking unnecessarily long routes) are classic schemes that continue to trap unwary tourists.",
-        "Rental car scams have also evolved, with some companies charging for pre-existing damage or adding hidden fees that significantly inflate the final bill.",
-        "The rise of ride-sharing hasn't eliminated these risks – some scammers now pose as legitimate drivers on popular platforms, using fake apps and profiles."
-      ],
-      "tips": [
-        "Only use official taxi stands at airports and stations",
-        "Verify ride-share driver and car details before entering",
-        "Take photos of rental cars before and after use",
-        "Research typical taxi rates for common routes",
-        "Always ask for a meter or agree on a price beforehand"
-      ]
+        {
+        "subtitle": "Taxi Scams",
+        "text": "One of the most common transportation scams involves taxis. Unscrupulous drivers may overcharge by taking unnecessarily long routes, refusing to use meters, or claiming them to be broken. Others may use rigged meters that inflate fares. To avoid these scams, always research typical fares beforehand and insist on using licensed taxis. In some cities, rideshare apps are a safer option."
+      },
+      {
+        "subtitle": "Fake or Overpriced Rentals",
+        "text": "Rental scams are another major concern. These can include hidden fees, damage claims for pre-existing issues, or non-existent vehicles. Always book through reputable rental agencies and thoroughly inspect vehicles for damage before signing agreements. Take photos and videos as evidence to avoid wrongful claims."
+      },
+      {
+        "subtitle": "Public Transport Confusion",
+        "text": "In many cities, scammers prey on tourists unfamiliar with public transportation systems. They might sell fake tickets or offer unsolicited help in exchange for inflated fees. To stay safe, purchase tickets only from official counters or machines, and avoid accepting help from strangers."
+      },
+      {
+        "subtitle": "Final Thoughts",
+        "text": "Transportation scams can be frustrating and costly, but with some preparation and vigilance, you can steer clear of these pitfalls. Stick to reputable sources, document your transactions, and stay informed about common scams in your destination. By taking these steps, you’ll ensure your travel experience is smooth, safe, and enjoyable."
+      }
+    ],
+    "tips": [
+      {
+        "tip_title": "Research Transportation Costs in Advance",
+        "tip": "Know typical taxi fares and rental costs for your destination. Check local guides or online resources before you travel."
+      },
+      {
+        "tip_title": "Use Verified Platforms",
+        "tip": "Book rentals through well-known companies and ensure taxis are licensed. Licensed services are less likely to overcharge or scam you."
+      },
+      {
+        "tip_title": "Keep Small Change",
+        "tip": "Avoid overpaying by carrying exact amounts for fares. This can be especially useful in situations where drivers claim not to have change."
+      },
+      {
+        "tip_title": "Document Rentals",
+        "tip": "Take photos and videos of vehicles to avoid damage disputes. Ensure any existing damages are recorded before signing agreements."
+      },
+      {
+        "tip_title": "Stick to Official Sources",
+        "tip": "Purchase tickets for public transport only from authorized sellers. Avoid offers from street sellers or unofficial agents."
+      }
+    ]
     },
     {
       "id": "affiliate-2",
@@ -265,19 +289,45 @@
       "title": "🍽️ Food and Restaurant Scams: Dining with Caution",
       "date": "November 10, 2024",
       "tags": ["Food", "Cultural"],
-      "likes": 43,
       "content": [
-        "Food-related scams can not only ruin your travel budget but also potentially affect your health and safety.",
-        "Tourist-trap restaurants often employ various tactics: having staff lure passersby, hiding prices, adding automatic 'tourist charges,' or serving different portions to locals and tourists.",
-        "Street food vendors might use rigged scales or swap premium ingredients for cheaper alternatives after showing you the original product.",
-        "Some establishments even run elaborate schemes where 'friendly locals' recommend their restaurant, leading to grossly inflated bills."
+        {
+          "subtitle": "Inflated Menu Prices",
+          "text": "Many restaurants in tourist hotspots have two menus—one with normal prices for locals and another with inflated prices for tourists. Some even skip the menu entirely, charging exorbitantly for simple dishes. To avoid this, check online reviews and menu prices beforehand. If a menu isn’t provided, ask for one and confirm prices upfront."
+        },
+        {
+          "subtitle": "Unnecessary Extras",
+          "text": "Be wary of servers adding items to your order without asking, such as bread, water, or condiments, and charging extra for them. Always clarify what is included in the price of your meal to avoid surprises."
+        },
+        {
+          "subtitle": "Fake Local Delicacies",
+          "text": "Some eateries serve substandard or inauthentic dishes while claiming they are local specialties. To ensure authenticity, dine at places recommended by locals or reputable travel guides."
+        },
+        {
+          "subtitle": "Final Thoughts",
+          "text": "Dining scams can take the joy out of experiencing a destination’s culinary offerings. By being cautious, researching in advance, and trusting your instincts, you can enjoy delicious meals without any unpleasant surprises. Make food a highlight of your trip, not a source of stress."
+        }
       ],
       "tips": [
-        "Research restaurants in advance when possible",
-        "Always check menu prices before ordering",
-        "Ask for itemized bills and verify charges",
-        "Be wary of overly pushy restaurant touts",
-        "Observe where locals eat and follow their lead"
+        {
+          "tip_title": "Research Restaurants in Advance",
+          "tip": "Use trusted review platforms to identify authentic and fairly priced establishments. This can help you avoid tourist traps."
+        },
+        {
+          "tip_title": "Clarify Prices Before Ordering",
+          "tip": "Ask for a menu and confirm prices for all items. Avoid places that refuse to provide clear pricing."
+        },
+        {
+          "tip_title": "Avoid Street Sellers",
+          "tip": "Purchase food from licensed vendors to ensure quality and hygiene. Street sellers can sometimes overcharge or sell subpar products."
+        },
+        {
+          "tip_title": "Beware of Pushy Servers",
+          "tip": "Decline unrequested additions to your order to avoid extra charges. Politely confirm what is included in your meal."
+        },
+        {
+          "tip_title": "Eat Where Locals Eat",
+          "tip": "Follow locals to discover authentic and affordable dining options. This is often a great way to experience real flavors."
+        }
       ]
     },
     {
@@ -286,17 +336,44 @@
         "date": "November 15, 2024",
         "tags": ["Shopping", "Street"],
         "content": [
-          "Shopping scams remain one of the most prevalent tourist traps, evolving to target both budget-conscious travelers and luxury shoppers.",
-          "Counterfeit goods are becoming increasingly sophisticated, with some fake markets even providing \"authentic\" receipts and fake certificates of authenticity.",
-          "The ancient art of bargaining has been weaponized in some tourist areas, with vendors using psychological tactics and fake \"wholesale\" prices to create artificial anchors.",
-          "Even legitimate-looking luxury stores in tourist areas sometimes sell authentic-looking counterfeits, especially in areas known for shopping tourism."
+          {
+            "subtitle": "Counterfeit Products",
+            "text": "Markets and street vendors frequently sell counterfeit items claiming to be luxury brands or local crafts. These products are often of poor quality and far from authentic. To avoid this, shop at official stores or well-known local artisans. Always inspect items closely and compare prices before purchasing."
+          },
+          {
+            "subtitle": "Price Inflation for Tourists",
+            "text": "Some sellers inflate prices the moment they identify you as a tourist. This is especially common in markets where bargaining is expected. Research typical prices beforehand and don't hesitate to negotiate. If the seller refuses to lower the price, walk away; they often call you back with a better offer."
+          },
+          {
+            "subtitle": "Unfair Return Policies",
+            "text": "Unscrupulous sellers may impose harsh return policies or refuse refunds entirely. Always ask about return or exchange policies before buying, especially for high-value items. Keep receipts and proof of purchase in case of disputes."
+          },
+          {
+            "subtitle": "Final Thoughts",
+            "text": "Shopping during your travels can be an enriching experience, but it’s essential to stay cautious and informed. By avoiding tourist traps, verifying authenticity, and understanding pricing norms, you can ensure your shopping adventures are memorable for the right reasons."
+          }
         ],
         "tips": [
-          "Research typical prices for desired items beforehand",
-          "Be extremely cautious with street vendor electronics",
-          "Learn basic bargaining phrases in local language",
-          "Keep receipts and credit card slips for all purchases",
-          "Verify luxury goods at official brand stores when possible"
+          {
+            "tip_title": "Shop at Authorized Stores",
+            "tip": "Stick to reputable stores or official outlets when buying high-value or branded items."
+          },
+          {
+            "tip_title": "Learn to Bargain",
+            "tip": "In markets, bargaining is often expected. Start with a lower offer and work your way up to a fair price."
+          },
+          {
+            "tip_title": "Inspect Items Closely",
+            "tip": "Before buying, check the quality and authenticity of the product carefully to avoid knock-offs."
+          },
+          {
+            "tip_title": "Request a Receipt",
+            "tip": "Always ask for an itemized receipt to prove your purchase and help with returns or disputes."
+          },
+          {
+            "tip_title": "Avoid Overly Pushy Sellers",
+            "tip": "If a seller pressures you excessively or refuses to answer questions, consider shopping elsewhere."
+          }
         ]
       },
       {
@@ -310,17 +387,44 @@
         "date": "November 20, 2024",
         "tags": ["Digital", "Cultural"],
         "content": [
-          "As travelers become more dependent on technology, cybercriminals are developing increasingly sophisticated methods to exploit digital vulnerabilities.",
-          "Public Wi-Fi networks in tourist areas are often compromised, with hackers setting up legitimate-looking networks to intercept personal data.",
-          "Digital pickpockets now use RFID scanners to steal credit card information from unsuspecting tourists in crowded areas.",
-          "Some scammers have even started targeting travelers through popular travel apps and social media platforms, using location data to make their approaches more convincing."
+          {
+            "subtitle": "Unsecured Wi-Fi Networks",
+            "text": "Public Wi-Fi networks are a lifeline for travelers but can also be a hotspot for hackers. Cybercriminals often set up fake Wi-Fi networks to steal personal information. To stay safe, use a VPN when connecting to public networks and avoid accessing sensitive accounts like banking or email."
+          },
+          {
+            "subtitle": "Phishing Emails and Messages",
+            "text": "Scammers often send fake emails or messages claiming to be from airlines, hotels, or other trusted entities. These typically ask for personal details or payment information. Always verify the sender and avoid clicking on suspicious links. Access official websites directly instead."
+          },
+          {
+            "subtitle": "Device Theft or Loss",
+            "text": "Losing your phone, tablet, or laptop can be devastating while traveling. Always keep your devices secure and back up important data before your trip. Enable tracking features and lock screens to prevent unauthorized access."
+          },
+          {
+            "subtitle": "Final Thoughts",
+            "text": "Digital security is critical for modern travelers. By taking proactive steps to secure your devices and personal data, you can enjoy your trip without worrying about cyber threats. Stay informed, cautious, and connected—but on your terms."
+          }
         ],
         "tips": [
-          "Use a reliable VPN when connecting to public Wi-Fi",
-          "Enable two-factor authentication on all accounts",
-          "Use RFID-blocking wallets for credit cards",
-          "Download apps only from official stores",
-          "Avoid conducting sensitive transactions on public networks"
+          {
+            "tip_title": "Use a VPN",
+            "tip": "A virtual private network (VPN) encrypts your internet connection, protecting your data on public Wi-Fi networks."
+          },
+          {
+            "tip_title": "Enable Two-Factor Authentication",
+            "tip": "Add an extra layer of security to your accounts by enabling two-factor authentication for logins."
+          },
+          {
+            "tip_title": "Back Up Data Before Traveling",
+            "tip": "Regularly back up important files and photos to a secure cloud service or external drive."
+          },
+          {
+            "tip_title": "Avoid Sharing Personal Information",
+            "tip": "Be cautious about sharing personal details online, especially on social media, while traveling."
+          },
+          {
+            "tip_title": "Carry a Power Bank",
+            "tip": "A portable charger ensures your devices never run out of battery, helping you stay connected and secure."
+          }
         ]
       },
       {
@@ -329,16 +433,44 @@
         "date": "December 1, 2024",
         "tags": ["Travel Scams", "Safety"],
         "content": [
-          "Travel scams are a serious concern for tourists worldwide. Whether you are a seasoned traveler or a first-time visitor, being aware of common scams can save you time, money, and stress.",
-          "One of the most common scams involves fake tour guides or taxi drivers who offer services at inflated prices. Another frequent scam includes overcharging at restaurants or stores targeting tourists.",
-          "Knowing how to avoid travel scams involves staying informed and cautious in unfamiliar environments."
+          {
+            "subtitle": "Scam Alert: Fake Guides and Tours",
+            "text": "Unlicensed guides often approach tourists near popular attractions, offering cheap tours that provide little to no value. These individuals may share misleading information or take you to shops that pay them commissions. To avoid this, book tours through licensed operators or official tourism offices."
+          },
+          {
+            "subtitle": "Hidden Fees and Overcharges",
+            "text": "Many scams involve hidden fees for services like taxis, restaurants, or attractions. Always clarify prices upfront and check your bill carefully to avoid being overcharged. If you're unsure, ask locals about typical costs for services in the area."
+          },
+          {
+            "subtitle": "Street Scams and Distractions",
+            "text": "Pickpockets often use distractions like fake arguments or staged accidents to target tourists. Stay alert in crowded areas and keep valuables secure in a money belt or an anti-theft bag."
+          },
+          {
+            "subtitle": "Final Thoughts",
+            "text": "By staying informed about common scams and taking preventive measures, you can significantly reduce the risk of falling victim while traveling. Trust your instincts, stay vigilant, and remember that a little preparation goes a long way toward ensuring a safer journey."
+          }
         ],
         "tips": [
-          "Always research scams specific to your destination before traveling",
-          "Avoid deals that seem \"too good to be true\"",
-          "Only use licensed services for taxis and tours",
-          "Keep your belongings close and avoid distraction scams",
-          "Trust your instincts—if something feels off, walk away"
+          {
+            "tip_title": "Research Common Scams",
+            "tip": "Before traveling, research common scams in your destination to know what to expect."
+          },
+          {
+            "tip_title": "Keep Valuables Secure",
+            "tip": "Use anti-theft bags or money belts to protect your belongings from pickpockets."
+          },
+          {
+            "tip_title": "Verify Credentials",
+            "tip": "Always check the credentials of guides, drivers, or anyone offering a service."
+          },
+          {
+            "tip_title": "Trust Your Instincts",
+            "tip": "If something feels off or too good to be true, walk away."
+          },
+          {
+            "tip_title": "Have Emergency Numbers Handy",
+            "tip": "Save local emergency numbers and your country's embassy contact information on your phone."
+          }
         ]
       },
       {
@@ -348,12 +480,12 @@
       },
       {
         "id": 9,
-        "title": "🌍 The Top 10 Travel Scams to Watch Out for in 2024",
-        "date": "December 2, 2024",
+        "title": "🌍 The Top 10 Travel Scams to Watch Out for in 2025",
+        "date": "December 20, 2024",
         "tags": ["Travel Scams", "Top Scams"],
         "content": [
           "Travel scams are continuously evolving, and it’s important to stay aware of the most common ones that affect tourists worldwide.",
-          "Some of the top scams to look out for in 2024 include fake hotel bookings, street scams where tourists are asked for donations or falsely accused of crimes, and tech-related scams like phishing emails disguised as travel confirmations.",
+          "Some of the top scams to look out for in 2025 include fake hotel bookings, street scams where tourists are asked for donations or falsely accused of crimes, and tech-related scams like phishing emails disguised as travel confirmations.",
           "Understanding these scams and how to recognize them can help travelers avoid falling victim to fraudulent schemes."
         ],
         "tips": [
@@ -370,16 +502,40 @@
         "date": "December 3, 2024",
         "tags": ["Travel Scams", "Southeast Asia"],
         "content": [
-          "Southeast Asia is a popular destination for travelers, but like many tourist hotspots, it’s also rife with scams designed to target unsuspecting visitors.",
-          "One common scam is the “tuk-tuk tour scam,” where tourists are convinced to take an overpriced ride around the city. Another scam involves fake temples or guided tours with inflated entry fees.",
-          "Traveling smart means staying informed and prepared for these and other local scams."
+          {
+            "subtitle": "The Evolving Landscape of Scams",
+            "text": "Scammers are constantly adapting their tactics, using technology and social engineering to trick travelers. For example, fake booking confirmations sent via email or messaging apps have become increasingly common. Always confirm bookings directly through official channels to avoid these traps."
+          },
+          {
+            "subtitle": "Classic Scams That Never Die",
+            "text": "Some scams, like overcharging taxis or counterfeit currency exchanges, remain timeless. These scams continue to target tourists because they are easy to execute and hard to detect in the moment. Stay alert to protect your wallet."
+          },
+          {
+            "subtitle": "Final Thoughts",
+            "text": "Traveling in 2024 comes with its own set of challenges, but being aware of the top scams can make all the difference. Stay informed, cautious, and prepared for any unexpected situations to ensure your trip remains enjoyable and safe."
+          }
         ],
         "tips": [
-          "Always agree on a fare before getting into a tuk-tuk or taxi",
-          "Research local attractions to avoid counterfeit tours",
-          "Avoid handing over large sums of cash or valuables to unknown individuals",
-          "Use well-established travel agencies and avoid impromptu deals",
-          "Keep a copy of important documents in a secure place"
+          {
+            "tip_title": "Use Trusted Apps for Bookings",
+            "tip": "Avoid fake booking scams by using verified apps and platforms for accommodations, tours, and transportation."
+          },
+          {
+            "tip_title": "Avoid Street Currency Exchanges",
+            "tip": "Only exchange money at official currency exchange offices or banks to avoid counterfeit notes."
+          },
+          {
+            "tip_title": "Learn Basic Phrases",
+            "tip": "Knowing a few local phrases can help you negotiate and avoid misunderstandings."
+          },
+          {
+            "tip_title": "Stick to Licensed Operators",
+            "tip": "Whether it’s taxis, guides, or tours, always go with licensed operators to minimize risks."
+          },
+          {
+            "tip_title": "Monitor Your Credit Card Activity",
+            "tip": "Regularly check your credit card statements for unauthorized charges during and after your trip."
+          }
         ]
       }
   ]

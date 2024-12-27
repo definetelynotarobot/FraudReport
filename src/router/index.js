@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import LandingPage from '../views/LandingPage.vue';
 import CitySelection from '../views/CitySelection.vue';
 import FraudReport from '../views/FraudReport.vue'; // Import the FraudReport component
-import AboutMe from '@/views/ScamBlog.vue';
+import ScamBlog from '@/views/ScamBlog.vue';
 import PrivacyPolicy from '@/views/PrivacyPolicy.vue'; // Adjust the path as necessary
 import AvoidPrevention from '@/views/AvoidPrevention.vue';
 import TermsOfUse from '@/views/TermsOfUse.vue';
@@ -16,7 +16,7 @@ const routes = [
   {
     path: '/Blog',
     name: 'Blog',
-    component: AboutMe,
+    component: ScamBlog,
   },
   {
     path: '/Scams',

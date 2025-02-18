@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GH_PAT }}
-          ref: main # Explicitly specify branch
+          ref: master # Explicitly specify branch
 
       - name: Nuclear File Add
         run: |

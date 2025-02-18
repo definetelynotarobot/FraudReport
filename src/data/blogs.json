@@ -730,5 +730,103 @@
         "tip": "Consider buying directly from the team's official website or authorized sellers."
       }
     ]
+  },
+  {
+    "id": 20,
+    "title": "🚨 Beware of NHL Ticket Scam in Toronto 🚨",
+    "date": "February 12, 2022",
+    "tags": [
+      "Scam Alert",
+      "NHL",
+      "Travel"
+    ],
+    "content": [
+      {
+        "subtitle": "The Scam",
+        "text": "Tourists are being targeted with fake NHL tickets for games in Toronto. Scammers sell these counterfeit tickets online and outside of the stadium, taking advantage of unsuspecting tourists."
+      },
+      {
+        "subtitle": "What to Look Out For",
+        "text": "The tickets often look legitimate and are sold at prices too good to be true. Be wary of sellers who insist on cash payments or rush transactions."
+      }
+    ],
+    "tips": [
+      {
+        "tip_title": "Verify Tickets",
+        "tip": "Ensure to verify the authenticity of the tickets from official NHL website."
+      },
+      {
+        "tip_title": "Avoid Cash Transactions",
+        "tip": "Avoid sellers who insist on cash-only transactions. Legitimate sellers will have various payment options."
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "title": "⚠️ Beware of the AC Milan Ticket Scam in Milan, Italy 🇮🇹",
+    "date": "October 20, 2022",
+    "tags": [
+      "AC Milan",
+      "Tourist Scam",
+      "Milan"
+    ],
+    "content": [
+      {
+        "subtitle": "The Scam",
+        "text": "Tourists are being approached by individuals claiming to sell last-minute tickets to AC Milan games. These tickets are often fake or grossly overpriced."
+      },
+      {
+        "subtitle": "Outcomes",
+        "text": "Victims either lose their money with no ticket to show, or they are turned away at the stadium due to invalid tickets."
+      }
+    ],
+    "tips": [
+      {
+        "tip_title": "Buy From Official Sources",
+        "tip": "Always purchase tickets from official sources to avoid becoming a victim of this scam."
+      },
+      {
+        "tip_title": "Beware of Street Sellers",
+        "tip": "Be wary of individuals selling tickets on the street. Remember, if a deal seems too good to be true, it probably is."
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "title": "🚨 Beware of 'Four Nations Face-Off' scam in Tokyo, Japan 🇯🇵",
+    "date": "November 12, 2022",
+    "tags": [
+      "Tokyo",
+      "Travel Scam",
+      "Four Nations Face-Off"
+    ],
+    "content": [
+      {
+        "subtitle": "The Scam",
+        "text": "Tourists are being tricked into buying tickets for a non-existent event called 'Four Nations Face-Off'. Scammers claim it's a popular sports event, taking advantage of tourists' unfamiliarity with local events."
+      },
+      {
+        "subtitle": "Spotting the Scam",
+        "text": "Scammers typically approach tourists near popular attractions, carrying professionally-printed brochures. They may appear well-dressed and fluent in multiple languages to appear trustworthy."
+      },
+      {
+        "subtitle": "Financial Losses",
+        "text": "Victims report losses ranging from $50 to $500. The 'tickets' are sold at varying prices, often tailored to the perceived budget of the target."
+      }
+    ],
+    "tips": [
+      {
+        "tip_title": "Verify Before Buying",
+        "tip": "Always verify event details and ticket legitimacy before purchasing tickets from street vendors."
+      },
+      {
+        "tip_title": "Buy from Official Sources",
+        "tip": "To avoid scams, purchase tickets from official venues or trusted online platforms."
+      },
+      {
+        "tip_title": "Report the Scam",
+        "tip": "If you encounter this scam, report it to local authorities to help prevent others from falling victim."
+      }
+    ]
   }
 ]

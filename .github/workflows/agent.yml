@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GH_PAT }}
-          ref: main # Explicitly specify branch
+          ref: master # Explicitly specify MASTER branch
 
       - name: Nuclear File Add
         run: |
@@ -21,7 +21,6 @@ jobs:
           git config --global user.email "bot@example.com"
           git add -f src/data/blogs.json || echo "⚠️ Add failed but continuing"
 
-          # Verify file existence
           if [ ! -f "src/data/blogs.json" ]; then
             echo "❌ blogs.json MISSING - KILLING WORKFLOW"
             exit 1
@@ -33,6 +32,6 @@ jobs:
 
       - name: Shove Changes
         run: |
-          git pull --rebase # Prevent conflicts
-          git push origin main --force
-          echo "🚀 Changes SHOVED into repo"
+          git pull --rebase origin master
+          git push origin master --force
+          echo "🚀 Changes SHOVED into master branch"

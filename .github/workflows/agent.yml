@@ -1,0 +1,32 @@
+name: Update Website Content
+on:
+  schedule:
+    - cron: '0 9 */2 * *' # Runs every 2 days at 8 AM UTC
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  commit-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_PAT }} # PAT with write access
+
+      # Step 2: Configure Git
+      - name: Setup Git identity
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+      # Step 3: Add changes (replace path with your JSON file location)
+      - name: Stage changes
+        run: git add ./data/blogs.json
+
+      # Step 4: Commit and push
+      - name: Commit and push changes
+        run: |
+          git commit -m "Auto-update: New blog content [skip ci]" || echo "No changes to commit"
+          git push

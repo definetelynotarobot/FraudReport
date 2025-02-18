@@ -1,4 +1,4 @@
-# incident-report
+# incident-report [![Update Website Content](https://github.com/definetelynotarobot/FraudReport/actions/workflows/agent.yml/badge.svg)](https://github.com/definetelynotarobot/FraudReport/actions/workflows/agent.yml)
 
 ## Project setup
 ```

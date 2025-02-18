@@ -500,27 +500,6 @@
     "content": "<div class=\"affiliate-banner\"><div class=\"banner-content\"><div class=\"banner-text\"><h3>🏨 Travel Smarter, Stay Safer: Find Your Perfect Accommodation</h3><p>Book with confidence using our verified hotel recommendations. Compare prices, read real traveler reviews, and protect yourself from booking scams.</p></div></div></div>"
   },
   {
-    "id": 9,
-    "title": "🌍 The Top 10 Travel Scams to Watch Out for in 2025",
-    "date": "December 20, 2024",
-    "tags": [
-      "Travel Scams",
-      "Top Scams"
-    ],
-    "content": [
-      "Travel scams are continuously evolving, and it’s important to stay aware of the most common ones that affect tourists worldwide.",
-      "Some of the top scams to look out for in 2025 include fake hotel bookings, street scams where tourists are asked for donations or falsely accused of crimes, and tech-related scams like phishing emails disguised as travel confirmations.",
-      "Understanding these scams and how to recognize them can help travelers avoid falling victim to fraudulent schemes."
-    ],
-    "tips": [
-      "Check the authenticity of all bookings before confirming payments",
-      "Be cautious of unsolicited requests from strangers on the street",
-      "Ensure your devices are secure and beware of phishing emails",
-      "Stay alert to local scam trends and share information with fellow travelers",
-      "Use reputable travel companies for tours and accommodations"
-    ]
-  },
-  {
     "id": 10,
     "title": "🚨 Travel Scams You Should Watch Out for in Southeast Asia",
     "date": "December 3, 2024",
@@ -655,6 +634,100 @@
       {
         "tip_title": "Secure Payment",
         "tip": "Ensure your payments are secure and retrievable in case of fraud."
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "title": "🚨 Beware of SPS Technologies Scam in Paris!",
+    "date": "September 20, 2022",
+    "tags": [
+      "SPS Technologies",
+      "Paris",
+      "Scam"
+    ],
+    "content": [
+      {
+        "subtitle": "Introduction",
+        "text": "Tourists in Paris have reported a new scam that involves the fraudulent use of the name 'SPS Technologies'. The scamsters claim to offer discounted tech gadgets under this brand."
+      },
+      {
+        "subtitle": "How the Scam Works",
+        "text": "Scammers approach tourists, offering high-end tech devices at unusually low prices. After the transaction, the buyer discovers that the device is either fake or non-functional."
+      }
+    ],
+    "tips": [
+      {
+        "tip_title": "Avoid Unverified Sellers",
+        "tip": "Always buy tech products from authorized dealers or reputable online platforms."
+      },
+      {
+        "tip_title": "Check Product Before Purchase",
+        "tip": "Before purchasing, inspect the product thoroughly and ensure it's working properly."
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "title": "🚨 Beware of the 'Tee Higgins' Football Memorabilia Scam in Cincinnati📍",
+    "date": "November 30, 2021",
+    "tags": [
+      "Tee Higgins",
+      "Scam",
+      "Travel"
+    ],
+    "content": [
+      {
+        "subtitle": "Introduction",
+        "text": "Travelers visiting Cincinnati, specifically sports fans, are being targeted by a scam involving 'Tee Higgins' football memorabilia. Scammers pose as local sports vendors, selling fake merchandise at steep prices."
+      },
+      {
+        "subtitle": "Details of the Scam",
+        "text": "These scammers sell counterfeit 'Tee Higgins' jerseys and autographs, claiming they're authentic. Unsuspecting tourists, eager to take home a piece of Cincinnati sports history, end up buying these fake items."
+      }
+    ],
+    "tips": [
+      {
+        "tip_title": "Verify the Vendor",
+        "tip": "Always confirm the authenticity of the vendor. Legitimate vendors often have an official tie-up with the team."
+      },
+      {
+        "tip_title": "Check for Authenticity",
+        "tip": "Look for signs of authenticity on the merchandise, such as holograms, certificates of authenticity, and unique serial numbers."
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "title": "🏒 Beware of Fake NHL Tickets in Toronto 🍁",
+    "date": "February 20, 2022",
+    "tags": [
+      "NHL",
+      "Tickets",
+      "Scam"
+    ],
+    "content": [
+      {
+        "subtitle": "Overview",
+        "text": "Tourists are falling victim to a scam involving fake NHL game tickets in Toronto. The scammers usually operate online, offering tickets at a significantly lower price, enticing unsuspecting tourists."
+      },
+      {
+        "subtitle": "The Scam",
+        "text": "The scammer asks for payment through unsecured methods, and upon receipt, they send a printable ticket. However, these tickets are fake, leaving many tourists stranded at the game entrance."
+      }
+    ],
+    "tips": [
+      {
+        "tip_title": "Verify Seller",
+        "tip": "Confirm the authenticity of the seller. Avoid buying from unverified sources."
+      },
+      {
+        "tip_title": "Secure Payment",
+        "tip": "Use secure payment methods that offer buyer protection."
+      },
+      {
+        "tip_title": "Official Websites",
+        "tip": "Consider buying directly from the team's official website or authorized sellers."
       }
     ]
   }

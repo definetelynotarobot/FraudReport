@@ -320,6 +320,17 @@ export default {
     width: 60px;
     height: 60px;
   }
+  .hero {
+    padding: 1rem;
+  }
+
+  .content {
+    margin-left: 5%;
+  }
+
+  .animated-text h1 {
+    font-size: 2.5rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -339,6 +350,9 @@ export default {
   .floating-icon {
     width: 40px;
     height: 40px;
+  }
+  .stats-grid, .features-grid {
+    grid-template-columns: 1fr;
   }
 }
 /* Stats Section */
@@ -447,49 +461,6 @@ export default {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hero {
-    padding: 1rem;
-  }
-
-  .content {
-    margin-left: 5%;
-  }
-
-  .animated-text h1 {
-    font-size: 2.5rem;
-  }
-
-  .subtitle {
-    font-size: 1.2rem;
-  }
-
-  .cta-button {
-    padding: 0.8rem 1.6rem;
-    font-size: 1rem;
-  }
-
-  .floating-icon {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-@media (max-width: 480px) {
-  .animated-text h1 {
-    font-size: 2rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-  }
-
-  .stats-grid, .features-grid {
-    grid-template-columns: 1fr;
   }
 }
 </style>

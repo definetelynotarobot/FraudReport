@@ -23,7 +23,7 @@ jobs:
 
       # Step 3: Add changes (replace path with your JSON file location)
       - name: Stage changes
-        run: git add ./data/blogs.json
+        run: git add src/data/blogs.json
 
       # Step 4: Commit and push
       - name: Commit and push changes

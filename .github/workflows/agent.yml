@@ -1,32 +1,38 @@
-name: Update Website Content
+name: Force Push Blog Updates
 on:
   schedule:
-    - cron: '0 9 */2 * *' # Runs every 2 days at 8 AM UTC
-  workflow_dispatch: # Allow manual triggering
+    - cron: '0 9 */2 * *' # Every 2 days at 9 AM UTC
+  workflow_dispatch:
 
 jobs:
-  commit-and-push:
+  enforce-blog-updates:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Checkout the repository
-      - name: Checkout code
+      - name: Checkout with Force
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.GH_PAT }} # PAT with write access
+          token: ${{ secrets.GH_PAT }}
+          ref: main # Explicitly specify branch
 
-      # Step 2: Configure Git
-      - name: Setup Git identity
+      - name: Nuclear File Add
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          git config --global user.name "Content Bot"
+          git config --global user.email "bot@example.com"
+          git add -f src/data/blogs.json || echo "⚠️ Add failed but continuing"
 
-      # Step 3: Add changes (replace path with your JSON file location)
-      - name: Stage changes
-        run: git add src/data/blogs.json
+          # Verify file existence
+          if [ ! -f "src/data/blogs.json" ]; then
+            echo "❌ blogs.json MISSING - KILLING WORKFLOW"
+            exit 1
+          fi
 
-      # Step 4: Commit and push
-      - name: Commit and push changes
+      - name: Ruthless Commit
         run: |
-          git commit -m "Auto-update: New blog content [skip ci]" || echo "No changes to commit"
-          git push
+          git commit -m "FORCED UPDATE: New blog content [skip ci]" || exit 0
+
+      - name: Shove Changes
+        run: |
+          git pull --rebase # Prevent conflicts
+          git push origin main --force
+          echo "🚀 Changes SHOVED into repo"

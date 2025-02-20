@@ -1,5 +1,4 @@
-# incident-report [![Update Website Content](https://github.com/definetelynotarobot/FraudReport/actions/workflows/agent.yml/badge.svg)](https://github.com/definetelynotarobot/FraudReport/actions/workflows/agent.yml)
-
+# incident-report[![AI Content Generation & Deployment](https://github.com/definetelynotarobot/FraudReport/actions/workflows/content-update.yml/badge.svg)](https://github.com/definetelynotarobot/FraudReport/actions/workflows/content-update.yml)
 ## Project setup
 ```
 npm install

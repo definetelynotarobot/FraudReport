@@ -1,0 +1,53 @@
+name: AI Content Generation & Deployment
+on:
+  schedule:
+    - cron: '0 9 * * *' # Daily at 9 AM UTC
+  workflow_dispatch:
+
+jobs:
+  generate-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout code
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_PAT }}
+
+      # 2. Setup Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # 3. Install dependencies
+      - name: Install Packages
+        run: npm install
+        working-directory: ./Content-Agent
+
+      # 4. Run AI Agent
+      - name: Generate Content
+        run: node script.js
+        working-directory: ./Content-Agent
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      # 5. Git setup
+      - name: Configure Git
+        run: |
+          git config --global user.name "Content Bot"
+          git config --global user.email "content-bot@users.noreply.github.com"
+
+      # 6. Commit changes
+      - name: Commit Updates
+        run: |
+          git add src/data/blogs.json
+          git commit -m "Auto-update: New scam reports [skip ci]" || echo "No changes to commit"
+
+      # 7. Push changes
+      - name: Push to Master
+        run: |
+          git pull --rebase origin master
+          git push origin master

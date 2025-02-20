@@ -1,7 +1,8 @@
 .DS_Store
 node_modules
 /dist
-
+/Content-Agent/node_modules
+/Content-Agent/.env
 
 # local env files
 .env.local

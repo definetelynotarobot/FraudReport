@@ -828,5 +828,107 @@
         "tip": "If you encounter this scam, report it to local authorities to help prevent others from falling victim."
       }
     ]
+  },
+  {
+    "title": "🇹🇭 Bangkok, Thailand Travel Scams",
+    "date": "March 6, 2025",
+    "tags": [
+      "Scams",
+      "Travel Safety",
+      "Thailand"
+    ],
+    "content": [
+      {
+        "subtitle": "Tuk-Tuk Scam",
+        "text": "In this prevalent scam, tuk-tuk drivers offer tourists a ride at an extremely low price. However, they take them to tailor or jewelry shops where they're pressured into making expensive purchases. These drivers often tell tourists that their desired destination is closed to convince them to visit these shops."
+      },
+      {
+        "subtitle": "Gem Scam",
+        "text": "Tourists are often approached by friendly locals who tell them about a 'government-sponsored' gem sale. They're taken to shops selling 'precious stones' at a fraction of their actual value. These stones usually turn out to be worthless."
+      }
+    ],
+    "tips": [
+      {
+        "tip_title": "Avoiding Tuk-Tuk Scams",
+        "tip": "Always insist on going directly to your destination. If a driver refuses, find another one. Research and know the operating hours of tourist sites."
+      },
+      {
+        "tip_title": "Avoiding Gem Scams",
+        "tip": "Avoid buying gems unless you're an expert. If it sounds too good to be true, it probably is."
+      }
+    ],
+    "local_authorities": {
+      "police": {
+        "name": "Royal Thai Police",
+        "emergency_number": "191"
+      },
+      "tourist_police": {
+        "name": "Tourist Police Thailand",
+        "emergency_number": "1155"
+      }
+    },
+    "id": 23
+  },
+  {
+    "title": "🌍 Paris, France: Beware of Tourist Traps",
+    "date": "March 6, 2025",
+    "tags": [
+      "Travel Scams",
+      "Paris",
+      "Tourist Traps"
+    ],
+    "content": [
+      {
+        "subtitle": "Scam Tactics",
+        "text": "In the romantic city of Paris, tourist traps are common. Scammers often pose as 'friendly locals' offering to show you around, only to lead you to overpriced restaurants or shops where they receive a commission. Another common scam involves street performers or artists who pressure you into paying for a performance or portrait you didn't ask for. Be wary of anyone who seems overly friendly or pushy."
+      },
+      {
+        "subtitle": "Local Authorities to Contact",
+        "text": "If you become a victim of these scams, contact the local police immediately. In Paris, the emergency number is 17. For non-emergency issues, you can reach the Paris Police Prefecture at +33 1 53 73 53 73. It's also a good idea to inform your embassy or consulate."
+      }
+    ],
+    "tips": [
+      {
+        "tip_title": "Prevention Tip 1",
+        "tip": "Research beforehand. Know the common scams in the area and the average prices for meals, accommodations, and souvenirs."
+      },
+      {
+        "tip_title": "Prevention Tip 2",
+        "tip": "Avoid following strangers to unknown locations. Stick to your planned itinerary and trusted guides."
+      },
+      {
+        "tip_title": "Prevention Tip 3",
+        "tip": "Learn some basic French phrases to communicate effectively and show that you're not an easy target."
+      }
+    ],
+    "id": 24
+  },
+  {
+    "title": "🇹🇭 Bangkok, Thailand: Vacation Rental Fraud",
+    "date": "March 6, 2025",
+    "tags": [
+      "Vacation Fraud",
+      "Rental Scam",
+      "Bangkok"
+    ],
+    "content": [
+      {
+        "subtitle": "Vacation Rental Scam Tactics",
+        "text": "In Bangkok, a common scam involves fraudsters posting non-existent or already rented properties on popular vacation rental sites. They lure tourists with attractive prices and collect upfront payments. Upon arrival, tourists find the property doesn't exist or is already occupied. In some cases, fraudsters impersonate actual property owners or agents, using stolen or fake IDs."
+      }
+    ],
+    "tips": [
+      {
+        "tip_title": "Prevention Tips",
+        "tip": "Always verify property details and owner's identity. Use trusted platforms that offer secure payment options and never wire money directly. Avoid deals that seem too good to be true."
+      }
+    ],
+    "authorities": [
+      {
+        "authority_name": "Royal Thai Police",
+        "contact": "In case of emergencies, dial 191 or 1155 for Tourist Police. For non-emergencies, you can contact the local police station."
+      }
+    ],
+    "id": 25
   }
 ]

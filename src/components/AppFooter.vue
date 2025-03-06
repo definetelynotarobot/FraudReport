@@ -18,7 +18,7 @@
           <li>
             <a href="https://x.com/Mehmet_vue" class="footer-link" target="_blank" rel="noopener">
               <i class="fab fa-x-twitter"></i>
-              @Mehmet_vue
+              @TouristGuards
             </a>
           </li>
           <li>

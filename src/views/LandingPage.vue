@@ -65,6 +65,34 @@
       </div>
     </section>
 
+    <!-- Add Navigation Links Section after Stats Section -->
+    <section class="links-section">
+      <div class="links-grid">
+        <div class="link-card">
+          <h3>🔍 Explore More</h3>
+          <ul>
+            <li><router-link to="/scams">Latest Scam Reports</router-link></li>
+            <li><router-link to="/blog">Travel Safety Blog</router-link></li>
+            <li><router-link to="/share-experience">Report an Incident</router-link></li>
+          </ul>
+        </div>
+        <div class="link-card">
+          <h3>🌐 Official Resources</h3>
+          <ul>
+            <li><a href="https://travel.state.gov/content/travel.html" target="_blank" rel="noopener">US Travel Advisory</a></li>
+            <li><a href="https://www.who.int/travel-advice" target="_blank" rel="noopener">WHO Travel Advice</a></li>
+            <li><a href="https://www.interpol.int/en/Crimes/Financial-crime" target="_blank" rel="noopener">Interpol Financial Crime</a></li>
+          </ul>
+        </div>
+        <div class="link-card">
+          <h3>🤝 Community</h3>
+          <ul>
+            <li><a href="https://twitter.com/TouristGuards" target="_blank" rel="noopener">Follow us on Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <!-- Features Section -->
     <section class="features-section">
       <h2>Why Choose Our Platform?</h2>
@@ -461,6 +489,136 @@ export default {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Replace the existing links-section related styles with these enhanced ones */
+.links-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(to bottom, #ffffff, #f8fafc);
+  position: relative;
+}
+
+.links-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  padding: 0 1rem;
+}
+
+.link-card {
+  padding: 2.5rem;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.link-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.link-card h3 {
+  color: #1e3a8a;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.link-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link-card ul li {
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.link-card ul li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #3b82f6;
+  transition: transform 0.2s ease;
+}
+
+.link-card ul li a {
+  color: #4b5563;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  display: block;
+  padding: 0.4rem 0;
+  font-weight: 500;
+}
+
+.link-card ul li a:hover {
+  color: #2563eb;
+  transform: translateX(5px);
+}
+
+.link-card ul li:hover:before {
+  transform: translateX(3px);
+}
+
+/* External link styles */
+.link-card ul li a[target="_blank"] {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.link-card ul li a[target="_blank"]:after {
+  content: "↗";
+  font-size: 0.9em;
+  transition: transform 0.2s ease;
+}
+
+.link-card ul li a[target="_blank"]:hover:after {
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 768px) {
+  .links-section {
+    padding: 4rem 1rem;
+  }
+  
+  .links-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .link-card {
+    padding: 2rem;
+  }
+  
+  .link-card h3 {
+    font-size: 1.4rem;
+  }
+  
+  .link-card ul li a {
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-card,
+  .link-card ul li a,
+  .link-card ul li:before {
+    transition: none;
   }
 }
 </style>

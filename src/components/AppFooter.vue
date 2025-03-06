@@ -16,7 +16,7 @@
       <nav class="footer-nav">
         <ul class="footer-links">
           <li>
-            <a href="https://x.com/Mehmet_vue" class="footer-link" target="_blank" rel="noopener">
+            <a href="https://x.com/TouristGuards" class="footer-link" target="_blank" rel="noopener">
               <i class="fab fa-x-twitter"></i>
               @TouristGuards
             </a>

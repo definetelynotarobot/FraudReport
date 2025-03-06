@@ -1,15 +1,40 @@
 <template>
   <div class="blog-container">
+    <!-- Add meta tags -->
+    <vue-meta>
+      <template v-slot:meta>
+        <!-- Canonical URL -->
+        <link rel="canonical" :href="canonicalUrl" />
+        
+        <!-- Open Graph Tags -->
+        <meta property="og:title" content="Travel Safety Blog - Tourist Guard" />
+        <meta property="og:description" content="Stay informed about latest travel scams and safety tips for tourists worldwide. Expert advice on avoiding common tourist traps and travel fraud." />
+        <meta property="og:url" :content="canonicalUrl" />
+        <meta property="og:type" content="website" />
+        
+        <!-- Twitter Card -->
+        <meta name="twitter:site" content="@TouristGuards" />
+        <meta name="twitter:title" content="Travel Safety Blog - Tourist Guard" />
+        <meta name="twitter:description" content="Stay informed about latest travel scams and safety tips for tourists worldwide." />
+      </template>
+    </vue-meta>
+    
     <main class="main-content">
       <!-- Articles Section -->
       <section v-if="activeSection === 'articles'" class="articles">
         <header class="safety-header">
-          <h1>Stay Safe While Exploring the World</h1>
+          <h1>Travel Safety Blog: Scam Alerts & Prevention Tips</h1>
+          <p class="subtitle">Stay informed about the latest travel scams and learn how to protect yourself while exploring the world.</p>
           <p class="disclaimer">
             <i class="fa-solid fa-triangle-exclamation"></i>
             <span>This information is provided for general educational purposes only and should not be considered as legal or security advice. Always consult local authorities or legal professionals for specific situations.</span>
           </p>
         </header>
+
+        <nav class="blog-navigation">
+          <router-link to="/Share-Experience" class="nav-link">Report Incident</router-link>
+          <router-link to="/Avoid" class="nav-link">Safety Resources</router-link>
+        </nav>
 
         <div class="filters">
           <button 
@@ -55,6 +80,15 @@
             </template>
           </article>
         </TransitionGroup>
+
+        <section class="related-resources">
+          <h2>Useful Resources</h2>
+          <ul class="resource-links">
+            <li><a href="https://travel.state.gov/content/travel.html" target="_blank" rel="noopener">U.S. Department of State Travel</a></li>
+            <li><a href="https://www.who.int/travel-advice" target="_blank" rel="noopener">WHO Travel Advice</a></li>
+            <li><router-link to="/safety-tips">Travel Safety Tips</router-link></li>
+          </ul>
+        </section>
       </section>
     </main>
 
@@ -89,6 +123,10 @@ export default {
     };
   },
   computed: {
+    /* eslint-disable */
+    canonicalUrl() {
+      return `https://touristguard.com${this.$route.path}`;
+    },
     filteredPosts() {
       if (this.selectedTags.length === 0) return this.posts;
       return this.posts.filter(post => 
@@ -116,6 +154,18 @@ export default {
         this.newStory.tags.push(tag);
       }
     },
+  },
+  metaInfo() {
+    return {
+      title: 'Travel Safety Blog - Tourist Guard',
+      meta: [
+        { 
+          vmid: 'description', 
+          name: 'description', 
+          content: 'Stay informed about latest travel scams and safety tips for tourists worldwide. Expert advice on avoiding common tourist traps and travel fraud.' 
+        }
+      ]
+    };
   }
 };
 </script>
@@ -318,5 +368,61 @@ export default {
 article a{
   text-decoration: none;
   background-color :white;
+}
+
+/* Add these new styles */
+.blog-navigation {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.nav-link {
+  color: #2563eb;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: #f1f5f9;
+}
+
+.related-resources {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.resource-links {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.resource-links li {
+  margin-bottom: 1rem;
+}
+
+.resource-links a {
+  color: #2563eb;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5rem 0;
+}
+
+.resource-links a:hover {
+  text-decoration: underline;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #64748b;
+  margin-bottom: 2rem;
 }
 </style>

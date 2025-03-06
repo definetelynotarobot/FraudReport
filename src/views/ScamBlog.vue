@@ -86,7 +86,7 @@
           <ul class="resource-links">
             <li><a href="https://travel.state.gov/content/travel.html" target="_blank" rel="noopener">U.S. Department of State Travel</a></li>
             <li><a href="https://www.who.int/travel-advice" target="_blank" rel="noopener">WHO Travel Advice</a></li>
-            <li><router-link to="/safety-tips">Travel Safety Tips</router-link></li>
+            <li><router-link to="/Avoid">Travel Safety Tips</router-link></li>
           </ul>
         </section>
       </section>

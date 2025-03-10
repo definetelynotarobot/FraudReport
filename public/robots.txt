@@ -1,3 +1,15 @@
 User-agent: *
 Disallow: /private/
+Disallow: /admin/
+Disallow: /login/
+Disallow: /tmp/
+Disallow: /config/
+Disallow: /cgi-bin/
+Disallow: /*?ref=*
+Disallow: /*?utm_*
+Disallow: /*?sessionid=*
+Allow: /js/
+Allow: /css/
+Allow: /img/
+Allow: /assets/
 Sitemap: https://touristguards.com/sitemap.xml
